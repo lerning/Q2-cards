@@ -14,12 +14,19 @@ router.post('/', (req, res, next) => {
   let username = req.body.username.toLowerCase()
   let password = req.body.password
   let email = req.body.email
+  let confirm_password = req.body.confirm_password
 
+  if (!username || !password || !email ){
+     res.render ('signup', {error: 'fill it all in you dingus'})
+  } else if (password != confirm_password) {
+     res.render('signup', {error:"you done fudged (passwords don't match!)"})
+  }
+  else {
   knex('users')
       .where('username', username)
       .then((exists) => {
         if (exists.length > 0) {
-          res.render('newuser', {
+          res.render('signup', {
             error: 'Username is already taken.'
           })
         } else {
@@ -37,6 +44,7 @@ router.post('/', (req, res, next) => {
             })
         }
       })
+   }
 })
 
 module.exports = router;
