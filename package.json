@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@google-cloud/translate": "^0.8.0",
     "bcrypt": "^1.0.2",
     "body-parser": "~1.16.0",
     "cookie-parser": "~1.4.3",
