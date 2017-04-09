@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const bcrypt = require('bcrypt');
 const knex = require('../knex');
 const jwt = require('jsonwebtoken');
@@ -25,16 +25,16 @@ router.post('/', (req, res) => {
          .first()
          .then((user) => {
             if (!user) {
-               console.log('!user', user);
                res.render('index', {error: 'you dont exist!!!!! panic.'})
             } else {
-               console.log('user', user);
                let hashed_password = bcrypt.compare(password, user.hashed_password, (err, result) => {
                   if (result) {
                      let token = jwt.sign({user: user}, 'secret_key')
                      res.cookie('token', token)
-                     res.render('index')
+                     res.cookie('userID', user.id, { httpOnly:true })
+                     res.redirect('/users')
                   }else {
+                    console.log('else');
                      res.render('index', {error: 'incorrect password you jabrone'})
                   }
                })
