@@ -1,21 +1,22 @@
+
 'use strict';
 
 const Translate = require('@google-cloud/translate');
-
-const projectId = 'AIzaSyAM0ynSKrAZLaqiAowwQ9t_0Ll0OswspVs';
+const projId = 'AIzaSyAM0ynSKrAZLaqiAowwQ9t_0Ll0OswspVs';
 
 const translateClient = Translate({
-  projectId: projectId
+  projectId: projId
 });
 
-let text = "Flash is the best app that man has made thus far."
 
-let target = 'es';
+const text = 'Flash is the best application ever created';
+
+const target = 'es';
 
 translateClient.translate(text, target)
   .then((results) => {
-    let translation = results[0];
+    const translation = results[0];
 
-    console.log('Text is: ', text);
-    console.log('Text in Spanish: ', translation);
+    console.log(`Text: ${text}`);
+    console.log(`Translation: ${translation}`);
 });
