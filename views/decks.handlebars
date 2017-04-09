@@ -1,0 +1,17 @@
+<main class="container">
+
+    <div class="row">
+        <h1>User Decks</h1>
+    </div>
+
+    <section class="row">
+        {{#each decks}}
+            <a href="/">
+              <div class="jumbotron col-md-6 col-md-offset-3">
+                <h3>{{this.deck_title}}</h3>
+              </div>
+            </a>
+        {{/each}}
+    </section>
+
+</main>

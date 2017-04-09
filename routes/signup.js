@@ -40,7 +40,7 @@ router.post('/', (req, res, next) => {
               let token = jwt.sign({ username: user[0].username, password: user[0].hashed_password }, 'shhhh')
               res.cookie('token', token, { httpOnly:true })
               res.cookie('userID', user[0].id, { httpOnly:true })
-              res.redirect('/users')
+              res.redirect('/decks')
             })
         }
       })

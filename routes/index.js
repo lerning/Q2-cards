@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
                      let token = jwt.sign({user: user}, 'secret_key')
                      res.cookie('token', token)
                      res.cookie('userID', user.id, { httpOnly:true })
-                     res.redirect('/users')
+                     res.redirect('/decks')
                   }else {
                     console.log('else');
                      res.render('index', {error: 'incorrect password you jabrone'})
