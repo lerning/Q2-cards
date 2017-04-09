@@ -6,12 +6,12 @@
 
     <section class="row">
         {{#each decks}}
-              <div class="jumbotron col-md-6 col-md-offset-3 deck" id="{{this.deck_id}}">
-                <h3>{{this.deck_title}}</h3>
+              <div class="jumbotron col-md-6 col-md-offset-3 deck" data-id="{{this.deck_id}}">
+                <h3 data-id="{{this.deck_id}}">{{this.deck_title}}</h3>
               </div>
         {{/each}}
         {{#each deck}}
-        <div class="jumbotron col-md-6 col-md-offset-3 deck" id="{{this.card_id}}">
+        <div class="jumbotron col-md-6 col-md-offset-3 deck" data-id="{{this.card_id}}">
           <h3>{{this.front}}</h3>
         </div>
         {{/each}}
