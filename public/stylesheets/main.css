@@ -1,0 +1,46 @@
+/*NAV*/
+.logo {
+  height: 3.0em;
+  padding-bottom: 0.5em;
+
+}
+
+.navbar h1 {
+  color: white;
+}
+
+
+.navbar {
+  height: 5.0em;
+
+}
+
+
+
+
+
+
+
+/*CARD FLIPPING*/
+
+.card_front,
+.card_back {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.6s;
+          transition: transform 0.6s;
+}
+
+.card_back {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.click.flipped .card_front {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.click.flipped .card_back {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
