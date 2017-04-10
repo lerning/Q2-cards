@@ -6,8 +6,6 @@ const jwt = require('jsonwebtoken');
 
 router.get('/:id', (req, res, next) => {
   let deck_id = req.params.id
-  console.log('params', req.params);
-  console.log('query', req.query);
   knex('cards')
     .select('cards.front as front', 'cards.back as back', 'cards.got_it as got_it ')
     .join('decks', 'decks.id', 'cards.deck_id')
