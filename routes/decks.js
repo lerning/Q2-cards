@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt');
 const knex = require('../knex');
 const jwt = require('jsonwebtoken');
 
-
 router.get('/', (req, res, next) => {
     jwt.verify(req.cookies.token, 'secret_key', (err, decoded) => {
       if (decoded) {

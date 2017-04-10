@@ -3,8 +3,7 @@ const router = express.Router()
 const bcrypt = require('bcrypt')
 const knex = require('../knex')
 const jwt = require('jsonwebtoken')
-const ev = require('express-validation')
-const validations = require('../validations/users')
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -19,7 +18,7 @@ router.get('/', function(req, res, next) {
   }
 })
 
-router.post('/', ev(validations.post), (req, res) => {
+router.post('/', (req, res) => {
   let username = req.body.username.toLowerCase()
   let password = req.body.password
   if (!username || !password) {

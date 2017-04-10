@@ -9,7 +9,7 @@ module.exports.post = {
             .required()
             .lowercase()
             .trim(),
-            
+
     email: Joi.string()
             .label('Email')
             .email()
@@ -20,5 +20,6 @@ module.exports.post = {
             .label('Password')
             .required()
             .trim()
+            .min(8)
   }
 };

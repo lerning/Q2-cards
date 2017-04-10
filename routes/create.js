@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const knex = require('../knex');
 const jwt = require('jsonwebtoken');
-const ev = require('express-validations')
+const ev = require('express-validation')
 const validations = require('../validations/cards')
 const validationsII = require('../validations/decks')
 
@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
   })
 })
 
-router.post('/', ev('validations.post'), ev('validationsII.post') (req, res) => {
+router.post('/', ev('validations.post'), (req, res) => {
    let title = req.body.title
    let userID = req.cookies.userID
    //knex to add deck

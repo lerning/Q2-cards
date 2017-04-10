@@ -14,7 +14,7 @@ router.get('/', (req, res, next) =>{
   res.render('signup')
 });
 
-router.post('/', (req, res, next) => {
+router.post('/', ev('validations.post'), (req, res, next) => {
   let username = req.body.username.toLowerCase()
   let password = req.body.password
   let email = req.body.email
