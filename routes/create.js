@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
   })
 })
 
-router.post('/', ev('validations.post'), (req, res) => {
+router.post('/', (req, res) => {
    let title = req.body.title
    let userID = req.cookies.userID
    //knex to add deck
@@ -26,7 +26,6 @@ router.post('/', ev('validations.post'), (req, res) => {
                .returning(['id', 'name', 'user_id'])
                .insert({ 'name': title, 'user_id': userID })
                .then((deck) => {
-                  console.log('daaata', deck[0]);
                   return deck[0]
                })
    }

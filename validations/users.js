@@ -7,7 +7,6 @@ module.exports.post = {
     username: Joi.string()
             .label('Name')
             .required()
-            .lowercase()
             .trim(),
 
     email: Joi.string()

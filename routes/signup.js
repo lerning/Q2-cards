@@ -14,7 +14,7 @@ router.get('/', (req, res, next) =>{
   res.render('signup')
 });
 
-router.post('/', ev('validations.post'), (req, res, next) => {
+router.post('/', (req, res, next) => {
   let username = req.body.username.toLowerCase()
   let password = req.body.password
   let email = req.body.email
@@ -41,7 +41,7 @@ router.post('/', ev('validations.post'), (req, res, next) => {
               hashed_password: bcrypt.hashSync(password, saltrounds),
               email: email
             }).then((user) => {
-              let token = jwt.sign({ username: user[0].username, password: user[0].hashed_password }, 'shhhh')
+              let token = jwt.sign({ username: user[0].username, password: user[0].hashed_password }, 'secret_key')
               res.cookie('token', token, { httpOnly:true })
               res.cookie('userID', user[0].id, { httpOnly:true })
               res.redirect('/decks')
