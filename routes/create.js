@@ -14,14 +14,10 @@ router.post('/', (req, res) => {
    let userID = req.cookies.userID
    console.log('userid', userID);
    //knex to add deck
-
    function createDeck() {
       return knex('decks')
                .returning(['id', 'name', 'user_id'])
-               .insert({
-                  'name': title,
-                  'user_id': userID
-               })
+               .insert({ 'name': title, 'user_id': userID })
                .then((deck) => {
                   console.log('daaata', deck[0]);
                   return deck[0]
