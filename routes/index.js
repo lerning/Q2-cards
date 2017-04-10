@@ -8,7 +8,13 @@ const jwt = require('jsonwebtoken');
 router.get('/', function(req, res, next) {
   res.clearCookie('token')
   res.clearCookie('userID')
-  res.render('index');
+  if (req.query.unauthorized) {
+    res.render('index', {
+      error: 'Unauthorized: please login.'
+    })
+  } else {
+    res.render('index');
+  }
 });
 
 router.post('/', (req, res) => {

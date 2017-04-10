@@ -40,12 +40,10 @@ router.post('/', (req, res) => {
             })
          }
    }
-
    function createDeckandCards() {
      return createDeck()
        .then(createCard)
    }
-
    createDeckandCards()
    .then(() => {
       res.redirect('decks')
