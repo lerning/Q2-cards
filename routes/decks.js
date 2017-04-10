@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 
 
 router.get('/', (req, res, next) => {
-    jwt.verify(req.cookies.token, 'shhhh', (err, decoded) => {
+    jwt.verify(req.cookies.token, 'secret_key', (err, decoded) => {
       if (decoded) {
         if (req.params.id) {
           res.status(200).send(true)

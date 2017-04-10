@@ -5,7 +5,13 @@ const knex = require('../knex');
 const jwt = require('jsonwebtoken');
 
 router.get('/', (req, res) => {
-   res.render('create')
+  jwt.verify(req.cookies.token, "secret_key", (err, decoded) => {
+    if (decoded) {
+      res.render('create')
+    } else {
+      res.redirect('/?unauthorized=true')
+    }
+  })
 })
 
 router.post('/', (req, res) => {
