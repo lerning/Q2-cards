@@ -40,6 +40,15 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+app.use((err, _req, res, _next) => {
+  if (err.status) {
+    return res.status(err.status).send(err);
+  }
+
+  console.error(err);
+  res.sendStatus(500);
+});
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

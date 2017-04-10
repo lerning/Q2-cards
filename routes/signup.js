@@ -4,6 +4,8 @@ const knex = require('../knex')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const saltrounds = 10
+const ev = require('express-validation')
+const validations = require('../validations/users')
 
 /* GET home page. */
 router.get('/', (req, res, next) =>{

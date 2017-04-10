@@ -3,6 +3,9 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const knex = require('../knex');
 const jwt = require('jsonwebtoken');
+const ev = require('express-validations')
+const validations = require('../validations/cards')
+const validationsII = require('../validations/decks')
 
 router.get('/', (req, res) => {
   jwt.verify(req.cookies.token, "secret_key", (err, decoded) => {
@@ -14,11 +17,9 @@ router.get('/', (req, res) => {
   })
 })
 
-router.post('/', (req, res) => {
-   console.log('body', req.body);
+router.post('/', ev('validations.post'), ev('validationsII.post') (req, res) => {
    let title = req.body.title
    let userID = req.cookies.userID
-   console.log('userid', userID);
    //knex to add deck
    function createDeck() {
       return knex('decks')
@@ -41,7 +42,6 @@ router.post('/', (req, res) => {
                'got_it': false
             })
             .then((card) => {
-               console.log('card', card);
                return card
             })
          }
