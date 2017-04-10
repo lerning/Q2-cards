@@ -48,6 +48,17 @@ router.get('/', (req, res, next) => {
 
 });
 
+router.delete('/', (req, res) => {
+  let id = req.body.id;
+  console.log('wes in deletre', id);
+  knex('decks')
+    .where('id', id)
+    .first()
+    .del()
+    .then(() => {
+      res.status(200).send(true);
+    })
+})
 
 
 module.exports = router;

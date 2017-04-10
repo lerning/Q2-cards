@@ -23,4 +23,26 @@ $('.card').click(() => {
   }
 })
 
+//delete functionality on individual decks
+   $('.btnDestroy').click(() => {
+       let id = $(event.target).attr('data-id');
+       console.log(id);
+       $.ajax({
+           method: 'DELETE',
+           url: '/decks',
+           data: {
+               id: id
+           },
+           success: (data) => {
+               if (data) {
+                   location.reload();
+               }
+           },
+           error: () => {}
+       })
+   })
+
+
+
+
 })
