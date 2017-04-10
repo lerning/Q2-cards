@@ -27,10 +27,11 @@
 </nav>
 <main class="container">
     <section class="row">
-        <a id="DeleteLink" class="btn btn-default btnDestroy col-md-2" href="/create" role="button">Delete</a>
+
         {{#each decks}}
             <div class="jumbotron col-md-6 col-md-offset-3 deck" data-id="{{this.deck_id}}">
                 <h3 data-id="{{this.deck_id}}">{{this.deck_title}}</h3>
+                 <a class="btn btn-default btnDestroy col-md-2" href="/create" role="button">Delete</a>
             </div>
         {{/each}}
         {{#each deck}}
