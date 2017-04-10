@@ -11,19 +11,24 @@
 <main class="container">
 
     <div class="row">
-        <h1>User Decks</h1>
+        <h1></h1>
     </div>
 
     <section class="row">
         {{#each decks}}
-              <div class="jumbotron col-md-6 col-md-offset-3 deck" data-id="{{this.deck_id}}">
+            <div class="jumbotron col-md-6 col-md-offset-3 deck" data-id="{{this.deck_id}}">
                 <h3 data-id="{{this.deck_id}}">{{this.deck_title}}</h3>
-              </div>
+            </div>
         {{/each}}
         {{#each deck}}
-        <div class="jumbotron col-md-6 col-md-offset-3 deck" data-id="{{this.card_id}}">
-          <h3>{{this.front}}</h3>
-        </div>
+            <div class="card click jumbotron col-md-6 col-md-offset-3">
+                <div class="card_front">
+                    <h3>{{this.front}}</h3>
+                </div>
+                <div class="card_back">
+                    <h3>{{this.back}}</h3>
+                </div>
+            </div>
         {{/each}}
     </section>
 

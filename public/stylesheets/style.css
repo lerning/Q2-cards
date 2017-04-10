@@ -100,6 +100,62 @@
     box-sizing: border-box;
 }
 
+
+.btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] {
+    background-color: #e6e6e6;
+}
+
+.btn-large {
+    padding: 9px 14px;
+    font-size: 15px;
+    line-height: normal;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.btn-primary, .btn-primary:hover {
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+}
+
+.btn-primary.active {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.btn-primary {
+    background-color: #8AC6D0;
+    background-image: -moz-linear-gradient(top, #457B9D, #8AC6D0);
+    background-image: -ms-linear-gradient(top, #457B9D, #8AC6D0);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#457B9D), to(#8AC6D0));
+    background-image: -webkit-linear-gradient(top, #457B9D, #8AC6D0);
+    background-image: -o-linear-gradient(top, #457B9D, #8AC6D0);
+    background-image: linear-gradient(top, #457B9D, #8AC6D0);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr=#457B9D, endColorstr=#8AC6D0, GradientType=0);
+    border: 1px solid #3762bc;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
+    filter: none;
+    background-color: #8AC6D0;
+}
+
+.btn-block {
+    width: 100%;
+    display: block;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 html {
     width: 100%;
     height: 100%;
@@ -164,3 +220,30 @@ input:focus {
     font-size: 18px;
     text-align: center;
 }
+
+/* Do not remove this! For card flip! */
+
+.card_front,
+.card_back {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.6s;
+          transition: transform 0.6s;
+}
+
+.card_back {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.click.flipped .card_front {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.click.flipped .card_back {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+}
+
+/* **** **  end of card flip *** **** */

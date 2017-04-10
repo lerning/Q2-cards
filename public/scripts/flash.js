@@ -1,10 +1,9 @@
 $(document).ready(() => {
-  console.log('ready');
+
+  $('.carousel').carousel()
 
   $('.deck').click(() => {
-    console.log('here');
     let deck_id = $(event.target).attr('data-id')
-    console.log('deck_id', deck_id);
     $.ajax({
       method: 'GET',
       url: '',
@@ -14,4 +13,14 @@ $(document).ready(() => {
       }, error: () => {}
     })
   })
+
+
+$('.card').click(() => {
+  if ($(event.target).hasClass('flipped')) {
+    $(event.target).removeClass("flipped")
+  } else {
+    $(event.target).addClass("flipped");
+  }
+})
+
 })
