@@ -14,8 +14,11 @@
     </div>
 
     <section class="row">
-        <button type="button" class="btn btn-default btnCreate">Create</button>
-        <button type="button" class="btn btn-default btnDestroy">Delete</button>
+      <a id="createLink" class="btn btn-default col-md-2" href="/create" role="button">Create</a>
+      <a id="DeleteLink" class="btn btn-default btnDestroy col-md-2" href="/create" role="button">Delete</a>
+      <!-- <button type="button" class="btn btn-default btnCreate">Create</button>
+      <button type="button" class="btn btn-default btnDestroy">Delete</button> -->
+
         {{#each decks}}
             <div class="jumbotron col-md-6 col-md-offset-3 deck" data-id="{{this.deck_id}}">
                 <h3 data-id="{{this.deck_id}}">{{this.deck_title}}</h3>
