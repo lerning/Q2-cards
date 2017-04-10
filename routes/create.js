@@ -14,26 +14,46 @@ router.post('/', (req, res) => {
    let userID = req.cookies.userID
    console.log('userid', userID);
    //knex to add deck
-   knex('decks')
-      .returning(['id', 'name', 'user_id'])
-      .insert({
-        'name': title,
-        'user_id': userID
-      })
-      .then((data) => {
-         console.log('daaata', data);
-         res.render('create')
-      })
 
-   //knex to add card
-   for (let card in req.body.front){
-      console.log(req.body.front[card]);
-      console.log(req.body.back[card]);
+   function createDeck() {
+      return knex('decks')
+               .returning(['id', 'name', 'user_id'])
+               .insert({
+                  'name': title,
+                  'user_id': userID
+               })
+               .then((deck) => {
+                  console.log('daaata', deck[0]);
+                  return deck[0]
+               })
    }
-   // let card  = {req.body.front[1]: req.body.back[1]}
-   // console.log('card obj', card);
-   // knex('cards')
+   // knex to add card
+   function createCard(deck) {
+      for (let card in req.body.front){
+        knex('cards')
+            .returning(['id', 'front', 'back', 'deck_id', 'got_it'])
+            .insert({
+               'front': req.body.front[card],
+               'back': req.body.back[card],
+               'deck_id':deck.id,
+               'got_it': false
+            })
+            .then((card) => {
+               console.log('card', card);
+               return card
+            })
+         }
+   }
 
+   function createDeckandCards() {
+     return createDeck()
+       .then(createCard)
+   }
+
+   createDeckandCards()
+   .then(() => {
+      res.redirect('decks')
+   })
 
 })
 
