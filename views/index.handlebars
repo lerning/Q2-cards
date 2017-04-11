@@ -1,41 +1,90 @@
 <head>
     <title>{{title}}</title>
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/scripts/flash.js"></script>
 </head>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12"> .</div>
+
+<body>
+    <script>
+        function statusChangeCallback(response) {
+            console.log('statusChangeCallback');
+            console.log(response);
+
+            if (response.status === 'connected') {
+                console.log('connected');
+            } else {
+                document.getElementById('status').innerHTML = 'Please log into this app.';
+            }
+        }
+
+
+        function checkLoginState() {
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+        }
+
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '1899452466980836',
+                cookie: true, // enable cookies to allow the server to access
+                // the session
+                xfbml: true, // parse social plugins on this page
+                version: 'v2.8' // use graph api version 2.8
+            });
+
+
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+
+        };
+
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12"> .</div>
+        </div>
+        <div class="row">
+            <div class="col-md-10"></div>
+            <a id="signupLink" class="btn btn-primary col-md-2 indexBtn" href="/signup" role="button">Signup</a>
+        </div>
     </div>
-    <div class="row">
-        <div class="col-md-10"></div>
-        <a id="signupLink" class="btn btn-primary col-md-2 indexBtn" href="/signup" role="button">Signup</a>
-    </div>
-</div>
-<div class="login">
+    <div class="login">
         <h1><img src="/img/flashLogo250.png" alt="Flash Logo" class="indexLogo">  FLASH</h1>
-    <form method="post">
-        <div class="input-field input">
-            <input type="text" name="username" placeholder="Username">
+        <form method="post">
+            <div class="input-field input">
+                <input type="text" name="username" placeholder="Username">
+            </div>
+            <div class="input-field input">
+                <input type="password" name="password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block btn-large indexBtn">Login</button>
+        </form>
+        <p class="error">{{error}}</p>
+    </div>
+    <div class="container-fluid row">
+        <div class="col-xs-4 col-xs-offset-4">
         </div>
-        <div class="input-field input">
-            <input type="password" name="password" placeholder="Password">
-        </div>
-        <button type="submit" class="btn btn-primary btn-block btn-large indexBtn">Login</button>
-    </form>
-<<<<<<< HEAD
-    <p class="error">{{error}}</p>
-</div>
-<div class="container-fluid row">
-  <div class="col-xs-4 col-xs-offset-4">
-    
-  </div>
-=======
-    <a class="btn btn-primary btn-block btn-large indexBtn btnSample" href="/decks/sample">Sample</a>
-    <p class='error'>{{error}}</p>
->>>>>>> ce852897408a2bb4610d54b6578795fad2a952ce
-</div>
+        <a class="btn btn-primary btn-block btn-large indexBtn btnSample" href="/decks/sample">Sample</a>
+        <p class="error">{{error}}</p>
+    </div>
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    </fb:login-button>
+    <div id="status">
+    </div>
+</body>
