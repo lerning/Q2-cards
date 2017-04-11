@@ -36,8 +36,11 @@ router.get('/', (req, res, next) => {
           .join('decks', 'decks.id', 'cards.deck_id')
           .where('decks.id', deck_id)
           .then((data) => {
+            let firstCard = [data[0]]
+            data.shift()
             res.render(`decks`, {
-              deck: data
+              deck: data,
+              cardOne: firstCard
             })
           })
       } else {
@@ -45,6 +48,7 @@ router.get('/', (req, res, next) => {
       }
     })
   })
+
 });
 
 router.get('/sample', (req, res, next) => {
@@ -62,17 +66,15 @@ router.get('/sample', (req, res, next) => {
       if (!error && response.statusCode == 200) {
         let info = JSON.parse(body);
         deck_id = info.sets[0].id
-          let options = {
-              url: `https://api.quizlet.com/2.0/sets/${deck_id}?client_id=qQGwH7rCeg&whitespace=1`,
-              headers: {
-                'Content-Type': 'application/json'
-              }
-            };
+        let options = {
+          url: `https://api.quizlet.com/2.0/sets/${deck_id}?client_id=qQGwH7rCeg&whitespace=1`,
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        };
         request(options, callback)
       }
     }
-
-
 
     function callback(error, response, body) {
       if (!error && response.statusCode == 200) {
@@ -85,7 +87,7 @@ router.get('/sample', (req, res, next) => {
           })
         }
         res.render('decks', {
-          deck: deck
+          sampleDeck: deck
         })
       } else {
         res.end()
@@ -94,7 +96,9 @@ router.get('/sample', (req, res, next) => {
     request(optionsI, callbackI)
 
   } else {
-    res.render('decks')
+    res.render('decks', {
+      search: [1]
+    })
   }
 
 })

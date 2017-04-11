@@ -32,7 +32,7 @@
   background-color: #E5A21D;
   color: white;
   margin: 1em 1em;
-  
+
 }
 
 .createBtn:hover {
@@ -64,4 +64,10 @@
 .click.flipped .card_back {
   -webkit-transform: rotateY(0);
           transform: rotateY(0);
+}
+
+#carousel {
+  clear: both;
+  width: 70%;
+  margin: auto;
 }
