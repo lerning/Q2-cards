@@ -4,15 +4,17 @@
   "description": "A flashcard app",
   "main": "app.js",
   "scripts": {
+    "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run;",
     "start": "node ./bin/www",
     "knex": "knex",
     "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run;",
+    "test": "mocha",
     "nodemon": "node ./bin/www"
   },
   "repository": {
   "type": "git",
   "url": "git+https://github.com/lerning/Q2-cards.git"
-},
+  },
   "dependencies": {
     "@google-cloud/translate": "^0.8.0",
     "bcrypt": "^1.0.2",
