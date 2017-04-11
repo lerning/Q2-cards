@@ -39,6 +39,7 @@
             <button class="btn btn-default btnDestroy col-md-1" type="submit" role="button" data-id="{{this.deck_id}}">X</button>
             <button class="btn btn-default btnUpdate col-md-1" type="submit" role="button" data-id="{{this.deck_id}}">Update</button>
         {{/each}}
+<<<<<<< HEAD
 
      <!-- carousel for each deck -->
 
@@ -92,5 +93,71 @@
            {{/each}}
          </div>
       </div>
+=======
+        {{#each sampleDeck}}
+            <div class="card click jumbotron col-md-6 col-md-offset-3">
+                <div class="card_front">
+                    <h3>{{this.front}}</h3>
+                </div>
+                <div class="card_back">
+                    <h3>{{this.back}}</h3>
+                </div>
+            </div>
+        {{/each}}
+        <div class="container">
+
+            <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="false" data-keyboard="true">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                    {{#each deck}}
+                        <li data-target="#carousel" data-slide-to="1"></li>
+                    {{/each}}
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    {{#each cardOne}}
+                        <div class="item active card">
+                            <div class="click jumbotron col-md-6 col-md-offset-3">
+                                <div class="card_front">
+                                    <h3>{{this.front}}</h3>
+                                </div>
+                                <div class="card_back">
+                                    <h3>{{this.back}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+
+                    {{#each deck}}
+                        <div class="item card">
+                            <div class="click jumbotron col-md-6 col-md-offset-3">
+                                <div class="card_front">
+                                    <h3>{{this.front}}</h3>
+                                </div>
+                                <div class="card_back">
+                                    <h3>{{this.back}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+                <!-- Controls -->
+                {{#each cardOne}}
+                    <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                {{/each}}
+            </div>
+            {{#each search}}
+                <form class="" method="get">
+                    <input type="text" name="search" placeholder="Search by Decks Subject">
+                    <button class="btn btn-default search col-md-1" type="submit" role="button">Search</button>
+                </form>
+            {{/each}}
+>>>>>>> joshua
     </section>
 </main>

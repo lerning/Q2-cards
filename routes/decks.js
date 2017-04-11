@@ -33,6 +33,7 @@ router.get('/', (req, res, next) => {
       if (decoded) {
         let deck_id = req.params.id
         knex('cards')
+
         .select('cards.front as front', 'cards.back as back', 'cards.got_it as got_it ')
         .join('decks', 'decks.id', 'cards.deck_id')
         .where('decks.id', deck_id)
@@ -49,7 +50,11 @@ router.get('/', (req, res, next) => {
       }
 
   })
+
 })
+
+
+
 
 router.get('/sample', (req, res, next) => {
   if (req.query.search !== undefined) {
@@ -66,12 +71,12 @@ router.get('/sample', (req, res, next) => {
       if (!error && response.statusCode == 200) {
         let info = JSON.parse(body);
         deck_id = info.sets[0].id
-          let options = {
-              url: `https://api.quizlet.com/2.0/sets/${deck_id}?client_id=qQGwH7rCeg&whitespace=1`,
-              headers: {
-                'Content-Type': 'application/json'
-              }
-            };
+        let options = {
+          url: `https://api.quizlet.com/2.0/sets/${deck_id}?client_id=qQGwH7rCeg&whitespace=1`,
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        };
         request(options, callback)
       }
     }
@@ -87,7 +92,7 @@ router.get('/sample', (req, res, next) => {
           })
         }
         res.render('decks', {
-          deck: deck
+          sampleDeck: deck
         })
       } else {
         res.end()
@@ -95,7 +100,9 @@ router.get('/sample', (req, res, next) => {
     }
     request(optionsI, callbackI)
   } else {
-    res.render('decks')
+    res.render('decks', {
+      search: [1]
+    })
   }
 
 })
