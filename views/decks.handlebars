@@ -24,6 +24,12 @@
         </div>
     </div>
 </nav>
+
+<form class="" method="get">
+  <input type="text" name="search" placeholder="Search by Decks Subject">
+  <button class="btn btn-default search col-md-1" type="submit" role="button">Search</button>
+</form>
+
 <main class="container">
     <section class="row">
         {{#each decks}}
@@ -58,16 +64,9 @@
                         <h3>{{this.back}}</h3>
                     </div>
                 </div>
-
             </div>
-        {{/each}}
-        <form class="" method="get">
-          <input type="text" name="search" placeholder="Search by Decks Subject">
-          <button class="btn btn-default search col-md-1" type="submit" role="button">Search</button>
-        </form>
-
+            {{/each}}
              </div>
-             {{/each}}
 
              {{#each deck}}
              <div class="item card">
@@ -92,11 +91,6 @@
            </a>
            {{/each}}
          </div>
-
       </div>
-
-
     </section>
-
-
 </main>
