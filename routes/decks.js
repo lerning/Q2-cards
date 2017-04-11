@@ -47,9 +47,14 @@ router.get('/', (req, res, next) => {
 
 });
 
+router.put('/', (req, res, next) => {
+  console.log('we were here');
+  res.status(200).send(true);
+})
+
+
 router.delete('/', (req, res) => {
   let id = req.body.id;
-  console.log('wes in deletre', id);
   knex('decks')
     .where('id', id)
     .first()

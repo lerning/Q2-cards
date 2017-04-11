@@ -42,6 +42,26 @@ $('.card').click(() => {
        })
    })
 
+   //update individual deck info
+   $('.btnUpdate').click(() => {
+       let deck_id = $(event.target).attr('data-id');
+       console.log('ajaxing', deck_id);
+       $.ajax({
+           method: 'PUT',
+           url: '/decks',
+           data: {
+               deck_id: deck_id
+           },
+           success: (data) => {
+               if (data) {
+                  location.href = `/update/${deck_id}`
+               }
+           },
+           error: () => {}
+       })
+   })
+
+
 
 
 
