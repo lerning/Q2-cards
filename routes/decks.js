@@ -39,6 +39,15 @@ router.get('/', (req, res, next) => {
             res.render(`decks`, {
               deck: data
             })
+        .select('cards.front as front', 'cards.back as back', 'cards.got_it as got_it ')
+        .join('decks', 'decks.id', 'cards.deck_id')
+        .where('decks.id', deck_id)
+        .then((data) => {
+           let firstCard = [data[0]]
+           data.shift()
+          res.render(`decks`, {
+            deck: data,
+            cardOne: firstCard
           })
       } else {
         res.redirect('/?unauthorized=true')
