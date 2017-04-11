@@ -11,24 +11,34 @@
   background-color: #E5A21D;
   color: white;
   margin: 1em 1em;
+
 }
 
-body {
+/*body {
   background-color: grey;
-}
+}*/
 
 .btnDestroy{
   background-color: #E5A21D;
   color: white;
 }
 
+/*CREATE PAGE*/
+.createBtnRow{
+  padding-top: 1em;
+}
 
+.createBtn{
+  background-color: #E5A21D;
+  color: white;
+  margin: 1em 1em;
+  
+}
 
-
-
-
-
-
+.createBtn:hover {
+  background-color: #e9b246;
+  color: white;
+}
 
 
 /*CARD FLIPPING*/
