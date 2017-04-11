@@ -40,8 +40,8 @@ router.post('/', (req, res) => {
                'deck_id':deck.id,
                'got_it': false
             })
-            .then((card) => {
-               return card
+            .then((data) => {
+               return data
             })
          }
    }
@@ -51,7 +51,7 @@ router.post('/', (req, res) => {
    }
    createDeckandCards()
    .then(() => {
-      res.redirect('decks')
+      res.redirect('/decks')
    })
 
 })

@@ -1,0 +1,40 @@
+<head>
+    <title>{{title}}</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+     <!-- <link rel="stylesheet" href="/stylesheets/style.css"/> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/scripts/flash.js"></script>
+</head>
+<main class="container">
+
+<div class="row">
+  <form class="col-sm-12 col-md-12" method="post">
+     <div class="row">
+      <div class="input-field col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+          <label for="Title">Title</label>
+         <input type="text" class="form-control" id="deck_title" name="title" value="{{title}}">
+      </div>
+     </div>
+     {{#each deck}}
+     <input type="text" name="id" class="hidden" value="{{this.id}}">
+    <div class="row">
+      <div class="input-field col-md-6 col-sm-6">
+         <label for="Front">Front</label>
+         <textarea class="form-control" rows="1" name="front" data-id="{{this.id}}">{{this.front}}</textarea>
+      </div>
+      <div class="input-field col-md-6 col-sm-6">
+         <label for="Back">Back</label>
+         <textarea class="form-control" rows="1" name="back" data-id="{{this.id}}">{{this.back}}</textarea>
+      </div>
+    </div>
+    {{/each}}
+
+    <div class="row">
+      <input class="btn btn-default col-md-2 col-md-offset-5" type="submit" value="Update">
+    </div>
+  </form>
+</div>
+</main>
