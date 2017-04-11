@@ -50,7 +50,6 @@ router.get('/', (req, res, next) => {
 router.get('/sample', (req, res, next) => {
   if (req.query.search !== undefined) {
     let deck_id = 0
-    let url = ''
     const deck = []
     let optionsI = {
       url: `https://api.quizlet.com/2.0/search/sets?client_id=qQGwH7rCeg&whitespace=1&q=${req.query.search}`,
@@ -63,24 +62,21 @@ router.get('/sample', (req, res, next) => {
       if (!error && response.statusCode == 200) {
         let info = JSON.parse(body);
         deck_id = info.sets[0].id
-        url = `https://api.quizlet.com/2.0/sets/${deck_id}?client_id=qQGwH7rCeg&whitespace=1`
+          let options = {
+              url: `https://api.quizlet.com/2.0/sets/${deck_id}?client_id=qQGwH7rCeg&whitespace=1`,
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            };
         request(options, callback)
       }
     }
 
 
-    let options = {
-      url: url,
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    };
 
     function callback(error, response, body) {
-      console.log('url', url);
       if (!error && response.statusCode == 200) {
         let info = JSON.parse(body);
-        console.log('bdy', body);
         let terms = info.terms
         for (let i = 0; i < terms.length; i++) {
           deck.push({
@@ -92,15 +88,12 @@ router.get('/sample', (req, res, next) => {
           deck: deck
         })
       } else {
-        console.log('error', error);
         res.end()
       }
     }
     request(optionsI, callbackI)
 
-
   } else {
-    console.log('else');
     res.render('decks')
   }
 
@@ -108,7 +101,6 @@ router.get('/sample', (req, res, next) => {
 
 
 router.put('/', (req, res, next) => {
-  console.log('we were here');
   res.status(200).send(true);
 })
 
