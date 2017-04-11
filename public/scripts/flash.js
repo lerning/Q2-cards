@@ -1,6 +1,6 @@
 $(document).ready(() => {
 
-  $('.carousel').carousel()
+  // $('.carousel').carousel()
 
   $('.deck').click(() => {
     let deck_id = $(event.target).attr('data-id')
@@ -16,12 +16,28 @@ $(document).ready(() => {
 
 
 $('.card').click(() => {
-  if ($(event.target).hasClass('flipped')) {
+  if ($(event.target).hasClass("flipped")) {
+     console.log($(event.target));
     $(event.target).removeClass("flipped")
   } else {
     $(event.target).addClass("flipped");
   }
 })
+
+// $('.deck').click(() => {
+//   $('#carousel').toggleClass("hidden"))
+// })
+
+//allow spacebar to lfip card
+$('body').keyup(function(e){
+   if(e.keyCode == 32){
+      console.log('still doing it!!!!');
+      $('.click').toggleClass("flipped")
+
+   }
+});
+
+
 
 //delete functionality on individual decks
    $('.btnDestroy').click(() => {
