@@ -3,15 +3,16 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const knex = require('../knex');
 const jwt = require('jsonwebtoken');
+const request = require('request')
 
 router.get('/', (req, res, next) => {
-    jwt.verify(req.cookies.token, 'secret_key', (err, decoded) => {
-      if (decoded) {
-        if (req.params.id) {
-          res.status(200).send(true)
-        } else {
-          let userID = req.cookies.userID
-          knex('users')
+  jwt.verify(req.cookies.token, 'secret_key', (err, decoded) => {
+    if (decoded) {
+      if (req.params.id) {
+        res.status(200).send(true)
+      } else {
+        let userID = req.cookies.userID
+        knex('users')
           .join('decks', 'decks.user_id', 'users.id')
           .select('decks.id as deck_id', 'decks.name as deck_title')
           .where('users.id', userID)
@@ -31,21 +32,76 @@ router.get('/', (req, res, next) => {
       if (decoded) {
         let deck_id = req.params.id
         knex('cards')
-        .select('cards.front as front', 'cards.back as back', 'cards.got_it as got_it ')
-        .join('decks', 'decks.id', 'cards.deck_id')
-        .where('decks.id', deck_id)
-        .then((data) => {
-          res.render(`decks`, {
-            deck: data
+          .select('cards.front as front', 'cards.back as back', 'cards.got_it as got_it ')
+          .join('decks', 'decks.id', 'cards.deck_id')
+          .where('decks.id', deck_id)
+          .then((data) => {
+            res.render(`decks`, {
+              deck: data
+            })
           })
-        })
       } else {
         res.redirect('/?unauthorized=true')
       }
     })
   })
-
 });
+
+router.get('/sample', (req, res, next) => {
+if (req.query.search === undefined) {
+  let deck_id
+  const deck = []
+  let optionsI = {
+    url: `https://api.quizlet.com/2.0/search/sets?q=${req.query.search}?client_id=qQGwH7rCeg&whitespace=1`,
+    headers: {
+      'Content-Type': 'application/jsonp'
+    }
+  }
+
+  function callbackI(err, response, body) {
+    if (!error && response.statusCode == 200) {
+      let info = JSON.parse(body);
+      let terms = info.terms
+      for (let i = 0; i < terms.length; i++) {
+        deck.push({
+          front: terms[i].term,
+          back: terms[i].definition
+        })
+      }
+    }
+  }
+
+  let options = {
+    url: 'https://api.quizlet.com/2.0/sets/415?client_id=qQGwH7rCeg&whitespace=1',
+    headers: {
+      'Content-Type': 'application/jsonp'
+    }
+  };
+
+  function callback(error, response, body) {
+    if (!error && response.statusCode == 200) {
+      let info = JSON.parse(body);
+      let terms = info.terms
+      for (let i = 0; i < terms.length; i++) {
+        deck.push({
+          front: terms[i].term,
+          back: terms[i].definition
+        })
+      }
+    }
+    res.render('decks', {
+      deck: deck
+    })
+  }
+  request(optionsI, callbackI)
+  request(options, callback)
+} else {
+  console.log('else');
+  res.render('decks')
+}
+
+})
+
 
 router.put('/', (req, res, next) => {
   console.log('we were here');
