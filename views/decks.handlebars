@@ -48,16 +48,19 @@
            </ol>
            <!-- Wrapper for slides -->
            <div class="carousel-inner">
+             {{#each cardOne}}
              <div class="item active card">
                  <div class="click jumbotron col-md-6 col-md-offset-3">
                     <div class="card_front">
-                        <h3>test</h3>
+                        <h3>{{this.front}}</h3>
                     </div>
                     <div class="card_back">
-                        <h3>slide</h3>
+                        <h3>{{this.back}}</h3>
                     </div>
                 </div>
              </div>
+             {{/each}}
+
              {{#each deck}}
              <div class="item card">
                 <div class="click jumbotron col-md-6 col-md-offset-3">
@@ -72,13 +75,15 @@
              {{/each}}
            </div>
            <!-- Controls -->
+           {{#each cardOne}}
            <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
              <span class="glyphicon glyphicon-chevron-left"></span>
            </a>
            <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
              <span class="glyphicon glyphicon-chevron-right"></span>
            </a>
-         </div> <!-- Carousel -->
+           {{/each}}
+         </div>
 
       </div>
 

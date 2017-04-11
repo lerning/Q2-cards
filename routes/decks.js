@@ -35,8 +35,11 @@ router.get('/', (req, res, next) => {
         .join('decks', 'decks.id', 'cards.deck_id')
         .where('decks.id', deck_id)
         .then((data) => {
+           let firstCard = [data[0]]
+           data.shift()
           res.render(`decks`, {
-            deck: data
+            deck: data,
+            cardOne: firstCard
           })
         })
       } else {

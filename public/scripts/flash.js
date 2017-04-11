@@ -1,6 +1,6 @@
 $(document).ready(() => {
 
-  // $('.carousel').carousel()
+  $('.carousel').carousel()
 
   $('.deck').click(() => {
     let deck_id = $(event.target).attr('data-id')
@@ -15,6 +15,7 @@ $(document).ready(() => {
   })
 
 
+//flip cards on click
 $('.card').click(() => {
   if ($(event.target).hasClass("flipped")) {
      console.log($(event.target));
@@ -28,15 +29,13 @@ $('.card').click(() => {
 //   $('#carousel').toggleClass("hidden"))
 // })
 
-//allow spacebar to lfip card
+//allow spacebar to flip card
 $('body').keyup(function(e){
    if(e.keyCode == 32){
       console.log('still doing it!!!!');
       $('.click').toggleClass("flipped")
-
    }
 });
-
 
 
 //delete functionality on individual decks
