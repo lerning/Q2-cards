@@ -26,19 +26,13 @@ router.get('/', (req, res, next) => {
       res.redirect('/?unauthorized=true')
     }
   })
+  })
 
   router.get('/:id', (req, res, next) => {
     jwt.verify(req.cookies.token, 'secret_key', (err, decoded) => {
       if (decoded) {
         let deck_id = req.params.id
         knex('cards')
-          .select('cards.front as front', 'cards.back as back', 'cards.got_it as got_it ')
-          .join('decks', 'decks.id', 'cards.deck_id')
-          .where('decks.id', deck_id)
-          .then((data) => {
-            res.render(`decks`, {
-              deck: data
-            })
         .select('cards.front as front', 'cards.back as back', 'cards.got_it as got_it ')
         .join('decks', 'decks.id', 'cards.deck_id')
         .where('decks.id', deck_id)
@@ -49,12 +43,13 @@ router.get('/', (req, res, next) => {
             deck: data,
             cardOne: firstCard
           })
-      } else {
+      })
+   } else {
         res.redirect('/?unauthorized=true')
       }
-    })
+
   })
-});
+})
 
 router.get('/sample', (req, res, next) => {
   if (req.query.search !== undefined) {
@@ -81,8 +76,6 @@ router.get('/sample', (req, res, next) => {
       }
     }
 
-
-
     function callback(error, response, body) {
       if (!error && response.statusCode == 200) {
         let info = JSON.parse(body);
@@ -101,18 +94,15 @@ router.get('/sample', (req, res, next) => {
       }
     }
     request(optionsI, callbackI)
-
   } else {
     res.render('decks')
   }
 
 })
 
-
 router.put('/', (req, res, next) => {
   res.status(200).send(true);
 })
-
 
 router.delete('/', (req, res) => {
   let id = req.body.id;
@@ -124,6 +114,5 @@ router.delete('/', (req, res) => {
       res.status(200).send(true);
     })
 })
-
 
 module.exports = router;
