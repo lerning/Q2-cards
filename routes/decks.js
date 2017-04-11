@@ -23,7 +23,7 @@ router.get('/', (req, res, next) => {
           })
       }
     } else {
-      res.redirect('/?unauthorized=true')
+      res.redirect('/sample')
     }
   })
   })
