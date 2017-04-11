@@ -48,57 +48,61 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/sample', (req, res, next) => {
-if (req.query.search === undefined) {
-  let deck_id
-  const deck = []
-  let optionsI = {
-    url: `https://api.quizlet.com/2.0/search/sets?q=${req.query.search}?client_id=qQGwH7rCeg&whitespace=1`,
-    headers: {
-      'Content-Type': 'application/jsonp'
-    }
-  }
-
-  function callbackI(err, response, body) {
-    if (!error && response.statusCode == 200) {
-      let info = JSON.parse(body);
-      let terms = info.terms
-      for (let i = 0; i < terms.length; i++) {
-        deck.push({
-          front: terms[i].term,
-          back: terms[i].definition
-        })
+  if (req.query.search !== undefined) {
+    let deck_id = 0
+    let url = ''
+    const deck = []
+    let optionsI = {
+      url: `https://api.quizlet.com/2.0/search/sets?client_id=qQGwH7rCeg&whitespace=1&q=${req.query.search}`,
+      headers: {
+        'Content-Type': 'application/json'
       }
     }
-  }
 
-  let options = {
-    url: 'https://api.quizlet.com/2.0/sets/415?client_id=qQGwH7rCeg&whitespace=1',
-    headers: {
-      'Content-Type': 'application/jsonp'
-    }
-  };
-
-  function callback(error, response, body) {
-    if (!error && response.statusCode == 200) {
-      let info = JSON.parse(body);
-      let terms = info.terms
-      for (let i = 0; i < terms.length; i++) {
-        deck.push({
-          front: terms[i].term,
-          back: terms[i].definition
-        })
+    function callbackI(error, response, body) {
+      if (!error && response.statusCode == 200) {
+        let info = JSON.parse(body);
+        deck_id = info.sets[0].id
+        url = `https://api.quizlet.com/2.0/sets/${deck_id}?client_id=qQGwH7rCeg&whitespace=1`
+        request(options, callback)
       }
     }
-    res.render('decks', {
-      deck: deck
-    })
+
+
+    let options = {
+      url: url,
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    function callback(error, response, body) {
+      console.log('url', url);
+      if (!error && response.statusCode == 200) {
+        let info = JSON.parse(body);
+        console.log('bdy', body);
+        let terms = info.terms
+        for (let i = 0; i < terms.length; i++) {
+          deck.push({
+            front: terms[i].term,
+            back: terms[i].definition
+          })
+        }
+        res.render('decks', {
+          deck: deck
+        })
+      } else {
+        console.log('error', error);
+        res.end()
+      }
+    }
+    request(optionsI, callbackI)
+
+
+  } else {
+    console.log('else');
+    res.render('decks')
   }
-  request(optionsI, callbackI)
-  request(options, callback)
-} else {
-  console.log('else');
-  res.render('decks')
-}
 
 })
 
