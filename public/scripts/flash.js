@@ -15,13 +15,28 @@ $(document).ready(() => {
   })
 
 
+//flip cards on click
 $('.card').click(() => {
-  if ($(event.target).hasClass('flipped')) {
+  if ($(event.target).hasClass("flipped")) {
+     console.log($(event.target));
     $(event.target).removeClass("flipped")
   } else {
     $(event.target).addClass("flipped");
   }
 })
+
+// $('.deck').click(() => {
+//   $('#carousel').toggleClass("hidden"))
+// })
+
+//allow spacebar to flip card
+$('body').keyup(function(e){
+   if(e.keyCode == 32){
+      console.log('still doing it!!!!');
+      $('.click').toggleClass("flipped")
+   }
+});
+
 
 //delete functionality on individual decks
    $('.btnDestroy').click(() => {
