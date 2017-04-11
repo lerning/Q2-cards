@@ -1,9 +1,13 @@
 {
-  "name": "q2-cards",
-  "version": "0.0.0",
-  "private": true,
+  "name": "flash",
+  "version": "1.0.0",
+  "description": "A flashcard app",
+  "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "knex": "knex",
+    "heroku-postbuild": "knex     migrate:rollback; knex migrate:latest; knex seed:run;",
+    "nodemon": "node app.js"
   },
   "dependencies": {
     "@google-cloud/translate": "^0.8.0",
@@ -20,5 +24,11 @@
     "morgan": "~1.7.0",
     "pg": "^6.1.5",
     "serve-favicon": "~2.3.2"
+  },
+  "engines": {
+    "node": "v7.7.2"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0"
   }
 }
