@@ -1,7 +1,8 @@
 <head>
     <title>{{title}}</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:500,600,700,800,900,400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/stylesheets/main.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -63,12 +64,12 @@
                    <!-- for first slide (active) -->
                     {{#each cardOne}}
                         <div class="item active card">
-                            <div class="click jumbotron col-md-6 col-md-offset-3">
-                                <div class="card_front">
-                                    <h3>{{this.front}}</h3>
+                            <div class="click col-md-6 col-md-offset-3">
+                                <div class="card_front center-block">
+                                    <h3 class="card_front align-text-middle">{{this.front}}</h3>
                                 </div>
-                                <div class="card_back">
-                                    <h3>{{this.back}}</h3>
+                                <div class="card_back center-block">
+                                    <h3 class="card_back align-text-middle">{{this.back}}</h3>
                                 </div>
                             </div>
                         </div>
@@ -76,12 +77,12 @@
                <!-- rest of cards -->
                 {{#each deck}}
                     <div class="item card">
-                        <div class="click jumbotron col-md-6 col-md-offset-3">
-                            <div class="card_front">
-                                <h3>{{this.front}}</h3>
+                        <div class="click col-md-6 col-md-offset-3">
+                            <div class="card_front center-block">
+                                <h3 class="card_front align-text-middle">{{this.front}}</h3>
                             </div>
-                            <div class="card_back">
-                                <h3>{{this.back}}</h3>
+                            <div class="card_back center-block">
+                                <h3 class="card_back align-text-middle">{{this.back}}</h3>
                             </div>
                         </div>
                     </div>

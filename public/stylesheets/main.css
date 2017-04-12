@@ -1,73 +1,108 @@
 /*NAV*/
+
 .logo {
-  height: inherit;
+    height: inherit;
 }
 
 .navbar {
-  height: 5.0em;
+    height: 5.0em;
 }
 
 .navBtn {
-  background-color: #E5A21D;
-  color: white;
-  margin: 1em 1em;
-
+    background-color: #E5A21D;
+    color: white;
+    margin: 1em 1em;
 }
 
-/*body {
-  background-color: grey;
-}*/
-
-.btnDestroy{
-  background-color: #E5A21D;
-  color: white;
+body {
+    font-family: 'Raleway', sans-serif;
 }
+
+.btnDestroy {
+    background-color: #E5A21D;
+    color: white;
+}
+
 
 /*CREATE PAGE*/
-.btnRow{
-  padding-top: 1em;
+
+.btnRow {
+    padding-top: 1em;
 }
 
-.createBtn, .upBtn{
-  background-color: #E5A21D;
-  color: white;
-  margin: 1em 1em;
+.createBtn, .upBtn {
+    background-color: #E5A21D;
+    color: white;
+    margin: 1em 1em;
 }
 
 .createBtn:hover, .upBtn:hover {
-  background-color: #e9b246;
-  color: white;
+    background-color: #e9b246;
+    color: white;
 }
-
 
 
 /*CARD FLIPPING*/
 
-.card_front,
-.card_back {
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-transition: -webkit-transform 0.6s;
-          transition: transform 0.6s;
+.card_front, .card_back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: -webkit-transform 0.6s;
+    transition: transform 0.6s;
 }
 
 .card_back {
-  -webkit-transform: rotateY(-180deg);
-          transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
 }
 
 .click.flipped .card_front {
-  -webkit-transform: rotateY(-180deg);
-          transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
 }
 
 .click.flipped .card_back {
-  -webkit-transform: rotateY(0);
-          transform: rotateY(0);
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
 }
 
+
+/*Card styling*/
+
+.card_front {
+    font-size: 1.75em;
+    font-weight: 600;
+}
+
+.card_back {
+    font-size: 1.5em;
+}
+
+
+/*Carousel styling*/
+
 #carousel {
-   clear: both;
-   width: 70%;
-   margin: auto;
+    clear: both;
+    width: 55vw;
+    height: 55vh;
+    margin: auto;
+    background-color: #fbd070;
+    /*background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/linedpaper.png");
+     background-repeat: repeat;*/
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, .5);
+    position: absolute;
+    padding: 0 0 10px 25px;
+    color: #fff;
+    text-align: left;
+}
+
+.glyphicon-chevron-left, .glyphicon-chevron-right {
+    color: #e9b246;
+}
+
+.carousel-control.left, .carousel-control.right {
+    background-image: none;
 }

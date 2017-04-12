@@ -115,7 +115,6 @@ router.get('/:id', (req, res, next) => {
             })
          })
       } else {
-         console.log('we got you you bastard!');
          res.redirect('/?unauthorized=true')
       }
    })
