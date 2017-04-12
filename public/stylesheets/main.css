@@ -1,3 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Raleway', sans-serif;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+p {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+}
+
+body {
+  width: 100%;
+  background: url('http://www.comparebookprices.org/wp-contentard/uploads/2013/02/trinity-college-old-library.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+body .section_overlay {
+  height: 100%;
+  background-color: rgba(33, 33, 33, .75);
+}
+
+
 /*NAV*/
 
 .logo {
@@ -6,19 +33,17 @@
 
 .navbar {
     height: 5.0em;
+    padding-bottom: 5.5%;
+    margin-bottom: 0;
+    border-bottom: 1px solid #fbd070;
 }
 
 .navBtn {
-    background-color: #E5A21D;
-    color: white;
     margin: 1em 1em;
 }
 
-body {
-    font-family: 'Raleway', sans-serif;
-}
 
-.btnDestroy, .btnUpdate {
+.btnDestroy, .btnUpdate, .navBtn {
   background: transparent;
   border-color: #f39c12;
   color: #f39c12;
@@ -32,15 +57,14 @@ body {
   transition: all 1s;
 }
 
-/*.btnUpdate {
-  margin-right: -10%;
-  margin-bottom: -10%;
+.btnUpdate {
+  margin-right: -27%;
 }
 
 .btnDestroy {
-  margin-top: -10%;
-  margin-right: -10%;
-}*/
+  margin-top: -20%;
+  margin-right: -27%;
+}
 
 
 /*CREATE PAGE*/
@@ -104,16 +128,28 @@ body {
 
 
 /*Card/deck styling*/
+#deckRow {
+  margin-top: 4em;
+  margin-left: 11em;
+}
 
 .title {
     font-size: 1.5em;
+    margin-bottom: 32px;
 }
 
 .deck, .sampleDeck {
   background-color: #fbd070;
   height: 12em;
   margin: .75em;
-  border-radius: 6px;
+}
+
+.deck {
+  height: 12em;
+}
+
+.sampleDeck {
+  height: 20em;
 }
 
 .card_front {
@@ -124,8 +160,6 @@ body {
 .card_back {
     font-size: 1.5em;
 }
-
-
 
 /*Carousel styling*/
 

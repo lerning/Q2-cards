@@ -69,8 +69,7 @@ $(document).ready(() => {
   })
 
   //update individual deck info
-  $('.btnUpdate').click(() => {
-    console.log('update clicked');
+  $('.btnUpdate').click((event) => {
     let deck_id = $(event.target).attr('data-id');
     $.ajax({
       method: 'PUT',

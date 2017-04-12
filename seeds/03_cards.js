@@ -18,8 +18,8 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: 3,
-          front: '1 + 4',
-          back: '5',
+          front: '1 + 5',
+          back: '6',
           deck_id: 3,
           got_it: false
         },
@@ -58,6 +58,55 @@ exports.seed = function(knex, Promise) {
           deck_id: 4,
           got_it: false
         },
+        {
+          id: 9,
+          front: 'AJAX',
+          back: 'Asynchronous Java Scrip and XML',
+          deck_id: 5,
+          got_it: false
+        },
+        {
+          id: 10,
+          front: 'AJAX is a ...',
+          back: 'Framework for building a RIA that uses features already built into modern browsers',
+          deck_id: 5,
+          got_it: false
+        },
+        {
+          id: 11,
+          front: 'DOM',
+          back: 'A standard that defines that logical structure of documents and the way a document is accessed and manipulated. (An object-oriented representation of the content in the page.)',
+          deck_id: 5,
+          got_it: false
+        },
+        {
+          id: 12,
+          front: 'Asynchronous',
+          back: 'The script allows the page to continue working normally, and it will deal with the the response when it is received.',
+          deck_id: 5,
+          got_it: false
+        },
+        {
+          id: 13,
+          front: 'JSON is ...',
+          back: 'The data returned by web services and page methods.',
+          deck_id: 5,
+          got_it: false
+        },
+        {
+          id: 14,
+          front: 'JSON',
+          back: 'JavaScript Object Notation',
+          deck_id: 5,
+          got_it: false
+        },
+        {
+          id: 15,
+          front: 'Synchronous',
+          back: 'The script will stop and wait for the server\'s response.',
+          deck_id: 5,
+          got_it: false
+        }
       ]);
     })
     .then(() => {

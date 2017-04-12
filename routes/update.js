@@ -7,7 +7,7 @@ const ev = require('express-validation')
 
 
 router.get('/:id', (req, res) => {
-  let deck_id = +req.params.id
+  let deck_id = Number.parseInt(req.params.id)
   console.log('deck id', deck_id);
   jwt.verify(req.cookies.token, "secret_key", (err, decoded) => {
     if (decoded) {

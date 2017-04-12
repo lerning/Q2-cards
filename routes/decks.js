@@ -44,7 +44,7 @@ router.get('/sample', (req, res, next) => {
         function callbackI(error, response, body) {
             if (!error && response.statusCode == 200) {
                 let info = JSON.parse(body);
-                for (var i = 0; i < 3; i++) {
+                for (var i = 0; i < 4; i++) {
                   deck_id = info.sets[i].id
                   title = info.sets[i].title + ' ' + (i + 1)
                   decks.push({
@@ -53,6 +53,7 @@ router.get('/sample', (req, res, next) => {
                   })
                 }
             }
+            console.log(decks);
             res.render('decks', {
               sampleDecks: decks
             })
@@ -84,7 +85,6 @@ router.get('/sample/:id', (req, res, next) => {
                   back: terms[i].definition
               })
           }
-          console.log('cards', cards);
           let firstCard = [cards[0]]
           cards.shift()
           res.render(`decks`, {

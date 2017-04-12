@@ -22,6 +22,41 @@ exports.seed = function(knex, Promise) {
           name: 'History',
           user_id: 3
         },
+        {
+          id: 5,
+          name: 'AJAX',
+          user_id: 3
+        },
+        {
+          id: 6,
+          name: 'HTML',
+          user_id: 3
+        },
+        {
+          id: 7,
+          name: 'PostgreSQL',
+          user_id: 3
+        },
+        {
+          id: 8,
+          name: 'CSS',
+          user_id: 3
+        },
+        {
+          id: 9,
+          name: 'JavaScript',
+          user_id: 3
+        },
+        {
+          id: 10,
+          name: 'Server',
+          user_id: 3
+        },
+        {
+          id: 11,
+          name: 'jQuery',
+          user_id: 3
+        }
       ]);
     })
     .then(() => {
