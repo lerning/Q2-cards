@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+   console.log('why god');
   res.clearCookie('token')
   res.clearCookie('userID')
   if (req.query.unauthorized) {
@@ -54,6 +55,11 @@ router.post('/', (req, res) => {
         }
       })
   }
+})
+
+router.get('/sample', (req, res) => {
+   console.log('in sample on index.js');
+   res.end()
 })
 
 

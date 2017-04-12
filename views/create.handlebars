@@ -1,7 +1,7 @@
 <head>
     <title>{{title}}</title>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
      <link rel="stylesheet" href="/stylesheets/main.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -53,17 +53,10 @@
          <textarea class="form-control" rows="1" name="back" data-id="2" placeholder="back"></textarea>
       </div>
     </div>
-    <div class="row">
-      <div class="input-field col-md-6 col-sm-6">
-         <label for="Front">Front</label>
-         <textarea class="form-control" rows="1" name="front" data-id="3" placeholder="front"></textarea>
-      </div>
-      <div class="input-field col-md-6 col-sm-6">
-         <label for="Back">Back</label>
-         <textarea class="form-control" rows="1" name="back" data-id="3" placeholder="back"></textarea>
-      </div>
+    <div class="addMoreRows">
+
     </div>
-    <div class="row createBtnRow container-fluid">
+    <div class="row btnRow container-fluid">
       <div class="col-md-5">
       </div>
       <button class="btn btn-default col-md-2 createBtn" type="submit">Create</button>
@@ -71,5 +64,6 @@
       </div>
     </div>
   </form>
+  <button class="btn btn-default col-md-2 upBtn addMore">addMore</button>
 </div>
 </main>
