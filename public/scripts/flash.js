@@ -87,4 +87,25 @@ $(document).ready(() => {
       error: () => {}
     })
   })
+// add more rows to update/create
+  $('.addMore').click(() => {
+    $('.addMoreRows').append(`<div class="row">
+          <div class="input-field col-md-6 col-sm-6">
+             <label for="Front">Front</label>
+             <textarea class="form-control" rows="1" name="front" data-id="3" placeholder="front"></textarea>
+          </div>
+          <div class="input-field col-md-6 col-sm-6">
+             <label for="Back">Back</label>
+             <textarea class="form-control" rows="1" name="back" data-id="3" placeholder="back"></textarea>
+          </div>
+          <button type="button" name="button" class="delInput">X</button>
+        </div>`)
+  })
+
+// delete rows from update/create
+  $('.addMoreRows').on('click', '.delInput', () => {
+    $(event.target).parent().remove()
+  })
+
+
 })
