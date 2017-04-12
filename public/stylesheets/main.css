@@ -94,8 +94,48 @@ body .section_overlay {
       padding: 10px;
 }
 
+.addMore {
+  margin-right: .5em;
+}
+
 .topRow {
   margin-left: 1.25em;
+}
+
+#deck_title, .createText {
+  margin-left: 1em;
+  font-size: 1.0em;
+  border-radius: 4px;
+  color: #e8e8e7;
+}
+
+#deck_title {
+  margin-top: 10px;
+  padding: 24px 12px;
+  background: rgba(9, 9, 9, 0.6);
+}
+
+.createText {
+    width: 15em;
+    margin-left: -3em;
+    border: 2px;
+    outline: none;
+    padding: 15px 10px;
+    border-radius: 4px;
+    color: #e8e8e7;
+}
+
+.f {
+  margin-top: -1.25em;
+  margin-bottom: 8px;
+}
+
+.createHeader {
+  margin-top: 4px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  color: #e8e8e7;
+  text-transform: uppercase;
 }
 
 /*CARD FLIPPING*/
@@ -185,45 +225,3 @@ body .section_overlay {
 .carousel-control.left, .carousel-control.right {
     background-image: none;
 }
-
-/*create deck styling*/
-.createText {
-    width: 100%;
-    margin-bottom: 10px;
-    border: 2px;
-    outline: none;
-    padding: 15px 10px;
-    font-size: 1.0em;
-    border-radius: 4px;
-    color: #e8e8e7;
-}
-
-.createHeader {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 300;
-  color: white;
-  text-transform: uppercase;
-}
-
-#deck_title {
-  margin-top: 2em;
-  margin-left: 1em;
-}
-
-/*.indexBtn {
-    background: transparent;
-    border-color: #f39c12;
-    color: #f39c12;
-    margin-top: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
-    font-size: 19px;
-    text-transform: uppercase;
-    border-radius: 3px;
-    -webkit-transition: all 1s;
-    -moz-transition: all 1s;
-    -o-transition: all 1s;
-    transition: all 1s;
-}*/

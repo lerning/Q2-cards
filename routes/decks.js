@@ -12,7 +12,6 @@ router.get('/', (req, res, next) => {
                 res.status(200).send(true);
             } else {
                 let userID = req.cookies.userID;
-                console.log('userid', userID);
                 knex('users')
                     .join('decks', 'decks.user_id', 'users.id')
                     .select('decks.id as deck_id', 'decks.name as deck_title')
@@ -24,7 +23,7 @@ router.get('/', (req, res, next) => {
                     })
             }
         } else {
-            res.redirect('/?unauthorized=true')
+            res.redirect('/login/?unauthorized=true')
         }
     })
 })
@@ -54,7 +53,6 @@ router.get('/sample', (req, res, next) => {
                   })
                 }
             }
-            console.log(decks);
             res.render('decks', {
               sampleDecks: decks
             })
