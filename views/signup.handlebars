@@ -9,34 +9,36 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/scripts/flash.js"></script>
 </head>
-<body class="section_overlay">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12"></div>
+
+<body>
+    <main class="section_overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-10"></div>
+                <a id="signupLink" class="btn home-btn col-md-2 fadeOutUp indexBtn" href="/" role="button">Login</a>
+            </div>
         </div>
-        <div class="row">
-            <div class="col-md-10"></div>
-            <a id="signupLink" class="btn home-btn col-md-2 fadeOutUp indexBtn" href="/" role="button">Login</a>
+        <div class="login">
+            <form method="post">
+                <h1><img src="/img/flashLogo500tranny.png" alt="Flash Logo" class="indexLogo">  FLASH</h1>
+                <div class="input-field input">
+                    <input type="text" name="username" placeholder="Username">
+                </div>
+                <div class="input-field input">
+                    <input type="text" class="validate" name="email" placeholder="Email">
+                </div>
+                <div class="input-field input">
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+                <div class="input-field input">
+                    <input type="password" name="confirm_password" placeholder="Confirm Password">
+                </div>
+                <button type="submit" class="btn indexBtn center-block">Sign Up</button>
+            </form>
+            <p class="error">{{error}}</p>
         </div>
-    </div>
-    <div class="login">
-        <img class="img-responsive center-block" width="175" height="175" src="/img/flashLogo500tranny.png" alt="">
-        <h1>FLASH</h1>
-        <form method="post">
-            <div class="input-field input">
-                <input type="text" name="username" placeholder="Username">
-            </div>
-            <div class="input-field input">
-                <input type="text" class="validate" name="email" placeholder="Email">
-            </div>
-            <div class="input-field input">
-                <input type="password" name="password" placeholder="Password">
-            </div>
-            <div class="input-field input">
-                <input type="password" name="confirm_password" placeholder="Confirm Password">
-            </div>
-            <button type="submit" class="btn home-btn indexBtn fadeOutUp center-block">Signup : )</button>
-        </form>
-        <p class="error">{{error}}</p>
-    </div>
+    </main>
 </body>

@@ -1,7 +1,7 @@
 <head>
     <title>{{title}}</title>
     <meta name=“viewport” content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -9,6 +9,7 @@
 </head>
 
 <body>
+  <main class="section_overlay">
     <script>
         function statusChangeCallback(response) {
             console.log('statusChangeCallback');
@@ -51,10 +52,10 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
 
-        function testAPI(accessToken) {
-            FB.api('/me?fields=id,name,email', function(response) {
-                console.log('Successful login for: ' + response.name);
-                var email = response.email;
+        // function testAPI(accessToken) {
+        //     FB.api('/me?fields=id,name,email', function(response) {
+        //         console.log('Successful login for: ' + response.name);
+        //         var email = response.email;
                 // $.ajax({
                 //     contentType: 'application/json',
                 //     url: `/`,
@@ -81,7 +82,8 @@
         </div>
     </div>
     <div class="login">
-        <h1><img src="/img/flashLogo500tranny.png" alt="Flash Logo" class="indexLogo">  FLASH</h1>
+
+
         <form method="post">
             <div class="input-field input">
                 <input type="text" name="username" placeholder="Username">
@@ -99,4 +101,5 @@
     </fb:login-button>
     <div id="status">
     </div>
+  </main>
 </body>
