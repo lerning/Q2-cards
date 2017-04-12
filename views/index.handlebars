@@ -12,31 +12,25 @@
   <main class="section_overlay">
     <script>
         function statusChangeCallback(response) {
-            console.log('statusChangeCallback');
             console.log(response);
-            console.log(response.authResponse)
-            console.log(response.authResponse.accessToken);
-
+            console.log('statusChangeCallback');
             if (response.status === 'connected') {
                 testAPI(response.authResponse.accessToken)
             } else {
                 document.getElementById('status').innerHTML = 'Please log into this app.';
             }
         }
-
         function checkLoginState() {
             FB.getLoginStatus(function(response) {
                 statusChangeCallback(response);
             });
         }
-
         window.fbAsyncInit = function() {
             FB.init({
                 appId: '1899452466980836',
-                cookie: true, // enable cookies to allow the server to access
-                // the session
-                xfbml: true, // parse social plugins on this page
-                version: 'v2.8' // use graph api version 2.8
+                cookie: true,
+                xfbml: true,
+                version: 'v2.8'
             });
 
             FB.getLoginStatus(function(response) {
@@ -51,26 +45,28 @@
             js.src = "//connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-
-        // function testAPI(accessToken) {
-        //     FB.api('/me?fields=id,name,email', function(response) {
-        //         console.log('Successful login for: ' + response.name);
-        //         var email = response.email;
-                // $.ajax({
-                //     contentType: 'application/json',
-                //     url: `/`,
-                //     method: 'POST',
-                //     dataType: 'json',
-                //     data: JSON.stringify({
-                //         accessToken,
-                //         email,
-                //         name
-                //     })
-                // }).done(() => {}).fail(res => {
-                //     window.location = res.responseText;
-        //     })
-        // });
-        // }
+        function testAPI(accessToken) {
+            FB.api('/me?fields=id,name,email', function(response) {
+                let name = response.name;
+                let email = response.email;
+                // let accessToken = response.authResponse.accessToken;
+                $.ajax({
+                    contentType: 'application/json',
+                    url: '/',
+                    method: 'POST',
+                    dataType: 'json',
+                    data: JSON.stringify({
+                        accessToken,
+                        email,
+                        name
+                    })
+                }).done(() => {
+                    href.location = "/create"
+                }).fail(res => {
+                    // window.location = res.responseText;
+            })
+        });
+        }
     </script>
     <div class="container">
         <div class="row">
