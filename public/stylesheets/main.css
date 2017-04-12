@@ -7,10 +7,7 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
 }
-p {
-    font-family: 'Raleway', sans-serif;
-    font-size: 14px;
-}
+
 
 body {
   width: 100%;
@@ -73,18 +70,7 @@ body .section_overlay {
     padding-top: 1em;
 }
 
-.createBtn, .upBtn {
-    background-color: #E5A21D;
-    color: white;
-    margin: 1em 1em;
-}
-
-.createBtn:hover, .upBtn:hover {
-    background-color: #e9b246;
-    color: white;
-}
-
-.home-btn, .home-btn:focus, .home-btn:active, .home-btn:visited {
+.upBtn, .indexBtn{
     background: transparent;
     border-color: #f39c12;
     color: #f39c12;
@@ -101,6 +87,16 @@ body .section_overlay {
     transition: all 1s;
 }
 
+.upBtn {
+      border-color: #fbd070;
+      color: #fbd070;
+      margin-top: 10px;
+      padding: 10px;
+}
+
+.topRow {
+  margin-left: 1.25em;
+}
 
 /*CARD FLIPPING*/
 
@@ -189,3 +185,45 @@ body .section_overlay {
 .carousel-control.left, .carousel-control.right {
     background-image: none;
 }
+
+/*create deck styling*/
+.createText {
+    width: 100%;
+    margin-bottom: 10px;
+    border: 2px;
+    outline: none;
+    padding: 15px 10px;
+    font-size: 1.0em;
+    border-radius: 4px;
+    color: #e8e8e7;
+}
+
+.createHeader {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  color: white;
+  text-transform: uppercase;
+}
+
+#deck_title {
+  margin-top: 2em;
+  margin-left: 1em;
+}
+
+/*.indexBtn {
+    background: transparent;
+    border-color: #f39c12;
+    color: #f39c12;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 19px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}*/
