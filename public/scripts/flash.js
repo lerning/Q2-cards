@@ -18,6 +18,22 @@ $(document).ready(() => {
     })
   })
 
+  $('.sampleDeck').click(() => {
+    console.log('deck clicked');
+    let deck_id = $(event.target).attr('data-id')
+    $.ajax({
+      method: 'GET',
+      url: '',
+      data: {
+        deck_id: deck_id
+      },
+      success: (data) => {
+        location.href = `/decks/sample/${deck_id}`
+      },
+      error: () => {}
+    })
+  })
+
   $('body').keyup(function(e) {
     if (e.keyCode == 32) {
       console.log('still doing it!!!!');

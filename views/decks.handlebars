@@ -42,7 +42,11 @@
             <button class="btn btn-default btnDestroy col-md-1" type="submit" role="button" data-id="{{this.deck_id}}">X</button>
             <button class="btn btn-default btnUpdate col-md-1" type="submit" role="button" data-id="{{this.deck_id}}">Update</button>
         {{/each}}
-
+        {{#each sampleDecks}}
+            <div class="jumbotron col-md-6 col-md-offset-3 sampleDeck" data-id="{{this.id}}">
+                <h3 data-id="{{this.id}}">{{this.title}}</h3>
+            </div>
+        {{/each}}
         <!-- carousel for each deck -->
 
         <div class="container">
