@@ -11,7 +11,7 @@ const signup = require('./routes/signup');
 const decks = require('./routes/decks')
 const create = require('./routes/create')
 const update = require('./routes/update')
-const splash = require('./routes/splash')
+const login = require('./routes/login')
 
 
 
@@ -35,7 +35,7 @@ app.use('/signup', signup);
 app.use('/decks', decks)
 app.use('/create', create)
 app.use('/update', update)
-app.use('/splash', splash)
+app.use('/login', login)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

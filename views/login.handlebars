@@ -1,0 +1,102 @@
+<head>
+    <title>{{title}}</title>
+    <meta name=“viewport” content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/scripts/flash.js"></script>
+    <script>
+        function statusChangeCallback(response) {
+            console.log(response);
+            console.log('statusChangeCallback');
+            if (response.status === 'connected') {
+                testAPI(response.authResponse.accessToken)
+            } else {
+                document.getElementById('status').innerHTML = 'Please log into this app.';
+            }
+        }
+
+        function checkLoginState() {
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+        }
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '1899452466980836',
+                cookie: true,
+                xfbml: true,
+                version: 'v2.8'
+            });
+
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+        };
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        function testAPI(accessToken) {
+            FB.api('/me?fields=id,name,email', function(response) {
+                let name = response.name;
+                let email = response.email;
+                // let accessToken = response.authResponse.accessToken;
+                $.ajax({
+                    contentType: 'application/json',
+                    url: '/',
+                    method: 'POST',
+                    dataType: 'json',
+                    data: JSON.stringify({
+                        accessToken,
+                        email,
+                        name
+                    })
+                }).done(() => {
+                    location.href = "/create";
+
+                }).fail(res => {
+                    // window.location = res.responseText;
+                })
+            });
+        }
+    </script>
+
+</head>
+
+<body>
+    <main class="section_overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-10"></div>
+                <a id="signupLink" class="btn btn-primary col-md-2 indexBtn" href="/signup" role="button">Signup</a>
+            </div>
+        </div>
+        <div class="login">
+            <form method="post">
+                <h1><img src="/img/flashLogo500tranny.png" alt="Flash Logo" class="indexLogo">  FLASH</h1>
+                <div class="input-field input">
+                    <input type="text" name="username" placeholder="Username">
+                </div>
+                <div class="input-field input">
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block btn-large indexBtn">Login</button>
+            </form>
+            <a class="btn btn-primary btn-block btn-large indexBtn" href="/decks/sample">Sample</a>
+            <h1></h1>
+            <fb:login-button class="fbLogin" scope="public_profile,email">
+            </fb:login-button>
+            <p class="error">{{error}}</p>
+        </div>
+    </main>
+</body>
