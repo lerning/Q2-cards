@@ -39,7 +39,7 @@ router.post('/', (req, res) => {
             res.cookie('userID', user.id, {
               httpOnly: true
             })
-            res.redirect('/decks')
+            res.status(200).send(true);
 
             // This is if the user doesn't exist
           })
