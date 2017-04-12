@@ -6,17 +6,21 @@ const jwt = require('jsonwebtoken');
 const request = require('request')
 
 router.get('/', (req, res, next) => {
+    console.log('req. cookies token', req.cookies.token);
     jwt.verify(req.cookies.token, 'secret_key', (err, decoded) => {
         if (decoded) {
             if (req.params.id) {
-                res.status(200).send(true)
+                res.status(200).send(true);
             } else {
-                let userID = req.cookies.userID
+                let userID = req.cookies.userID;
+                console.log('userid', userID);
                 knex('users')
                     .join('decks', 'decks.user_id', 'users.id')
                     .select('decks.id as deck_id', 'decks.name as deck_title')
                     .where('users.id', userID)
                     .then((decks) => {
+                      console.log('did we get inside here?');
+                      console.log('decks', decks);
                         res.render('decks', {
                             decks: decks
                         })
