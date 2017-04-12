@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 const request = require('request')
 
 router.get('/', (req, res, next) => {
+   console.log('top of get/ on deckjs');
     jwt.verify(req.cookies.token, 'secret_key', (err, decoded) => {
         if (decoded) {
             if (req.params.id) {
@@ -23,29 +24,6 @@ router.get('/', (req, res, next) => {
                     })
             }
         } else {
-            res.redirect('/sample')
-        }
-    })
-})
-
-router.get('/:id', (req, res, next) => {
-    jwt.verify(req.cookies.token, 'secret_key', (err, decoded) => {
-        if (decoded) {
-            let deck_id = req.params.id
-            knex('cards')
-
-                .select('cards.front as front', 'cards.back as back', 'cards.got_it as got_it ')
-                .join('decks', 'decks.id', 'cards.deck_id')
-                .where('decks.id', deck_id)
-                .then((data) => {
-                    let firstCard = [data[0]]
-                    data.shift()
-                    res.render(`decks`, {
-                        deck: data,
-                        cardOne: firstCard
-                    })
-                })
-        } else {
             res.redirect('/?unauthorized=true')
         }
     })
@@ -53,6 +31,7 @@ router.get('/:id', (req, res, next) => {
 
 
 router.get('/sample', (req, res, next) => {
+   console.log('inside get/sample before if');
     if (req.query.search !== undefined) {
         let deck_id = 0
         const deck = []
@@ -96,12 +75,37 @@ router.get('/sample', (req, res, next) => {
         }
         request(optionsI, callbackI)
     } else {
+      console.log('inside get/sample else');
         res.render('decks', {
             search: [1]
         })
     }
 
 })
+
+router.get('/:id', (req, res, next) => {
+   jwt.verify(req.cookies.token, 'secret_key', (err, decoded) => {
+      if (decoded) {
+         let deck_id = req.params.id
+         knex('cards')
+         .select('cards.front as front', 'cards.back as back', 'cards.got_it as got_it ')
+         .join('decks', 'decks.id', 'cards.deck_id')
+         .where('decks.id', deck_id)
+         .then((data) => {
+            let firstCard = [data[0]]
+            data.shift()
+            res.render(`decks`, {
+               deck: data,
+               cardOne: firstCard
+            })
+         })
+      } else {
+         console.log('we got you you bastard!');
+         res.redirect('/?unauthorized=true')
+      }
+   })
+})
+
 
 router.put('/', (req, res, next) => {
     res.status(200).send(true);
