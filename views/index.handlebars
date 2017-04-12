@@ -12,9 +12,11 @@
         function statusChangeCallback(response) {
             console.log('statusChangeCallback');
             console.log(response);
+            console.log(response.authResponse)
+            console.log(response.authResponse.accessToken);
 
             if (response.status === 'connected') {
-                console.log('connected');
+                testAPI(response.authResponse.accessToken)
             } else {
                 document.getElementById('status').innerHTML = 'Please log into this app.';
             }
@@ -47,9 +49,27 @@
             js.src = "//connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
+
+        function testAPI(accessToken) {
+            FB.api('/me?fields=id,name,email', function(response) {
+                console.log('Successful login for: ' + response.name);
+                var email = response.email;
+                // $.ajax({
+                //     contentType: 'application/json',
+                //     url: `/`,
+                //     method: 'POST',
+                //     dataType: 'json',
+                //     data: JSON.stringify({
+                //         accessToken,
+                //         email,
+                //         name
+                //     })
+                // }).done(() => {}).fail(res => {
+                //     window.location = res.responseText;
+            })
+        });
+        }
     </script>
-
-
     <div class="container">
         <div class="row">
             <div class="col-md-12"> .</div>
@@ -60,7 +80,7 @@
         </div>
     </div>
     <div class="login">
-        <h1><img src="/img/flashLogo250.png" alt="Flash Logo" class="indexLogo">  FLASH</h1>
+        <h1><img src="/img/flashLogo500tranny.png" alt="Flash Logo" class="indexLogo">  FLASH</h1>
         <form method="post">
             <div class="input-field input">
                 <input type="text" name="username" placeholder="Username">
@@ -70,7 +90,7 @@
             </div>
             <button type="submit" class="btn btn-primary btn-block btn-large indexBtn">Login</button>
         </form>
-        <a class="btn btn-primary btn-block btn-large indexBtn"  href="/decks/sample">Sample</a>
+        <a class="btn btn-primary btn-block btn-large indexBtn" href="/decks/sample">Sample</a>
         <p class="error">{{error}}</p>
     </div>
 
