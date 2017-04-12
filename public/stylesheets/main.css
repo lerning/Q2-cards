@@ -14,9 +14,11 @@
     margin: 1em 1em;
 }
 
+
 body {
     font-family: 'Raleway', sans-serif;
 }
+
 
 .btnDestroy {
     background-color: #E5A21D;
@@ -40,6 +42,28 @@ body {
     background-color: #e9b246;
     color: white;
 }
+
+.home-btn, .home-btn:focus, .home-btn:active, .home-btn:visited {
+    background: transparent;
+    border-color: #f39c12;
+    color: #f39c12;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 19px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+
+
+
+
+
 
 
 /*CARD FLIPPING*/

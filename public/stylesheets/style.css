@@ -1,19 +1,57 @@
-.indexBtn {
-  background: #E5A21D;
-}
 
-.indexBtn:hover {
-  background: #E9B246;
-}
+
 
 
 body {
     width: 100%;
     height: 100%;
-    font-family: 'Open Sans', sans-serif;
-    background-image: url('http://subtlepatterns.com/patterns/concrete_wall.png');
-    background-repeat: repeat;
+    font-family: 'Raleway', sans-serif;
+    background: url('http://www.comparebookprices.org/wp-contentard/uploads/2013/02/trinity-college-old-library.jpg');
+    background-size: cover;
+	  background-repeat: no-repeat;
 }
+
+body.section_overlay {
+    background-color: rgba(33, 33, 33, .75);
+  }
+
+.home-btn, .home-btn:focus, .home-btn:active, .home-btn:visited {
+    background: transparent;
+    border-color: #f39c12;
+    color: #f39c12;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 19px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+@keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    -ms-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+}
+
+.fadeOutUp {
+  -webkit-animation-name: fadeOutUp;
+  animation-name: fadeOutUp;
+}
+
 
 .indexLogo {
   height: 1.25em;
@@ -39,11 +77,13 @@ input {
     width: 100%;
     margin-bottom: 10px;
     background: rgba(0, 0, 0, 0.3);
-    border: none;
+    border: 2px;
     outline: none;
     padding: 10px;
-    font-size: 13px;
+    font-size: 1.0em;
     border-radius: 4px;
+    color: white;
+    font-family: Raleway, sans-serif;
 }
 
 .error {
