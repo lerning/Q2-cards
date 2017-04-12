@@ -14,16 +14,33 @@
     margin: 1em 1em;
 }
 
-
 body {
     font-family: 'Raleway', sans-serif;
 }
 
+.btnDestroy, .btnUpdate {
+  background: transparent;
+  border-color: #f39c12;
+  color: #f39c12;
+  padding: .5em 1em;
+  font-size: 1em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+
+/*.btnUpdate {
+  margin-right: -10%;
+  margin-bottom: -10%;
+}
 
 .btnDestroy {
-    background-color: #E5A21D;
-    color: white;
-}
+  margin-top: -10%;
+  margin-right: -10%;
+}*/
 
 
 /*CREATE PAGE*/
@@ -61,11 +78,6 @@ body {
 }
 
 
-
-
-
-
-
 /*CARD FLIPPING*/
 
 .card_front, .card_back {
@@ -91,7 +103,18 @@ body {
 }
 
 
-/*Card styling*/
+/*Card/deck styling*/
+
+.title {
+    font-size: 1.5em;
+}
+
+.deck, .sampleDeck {
+  background-color: #fbd070;
+  height: 12em;
+  margin: .75em;
+  border-radius: 6px;
+}
 
 .card_front {
     font-size: 1.75em;
@@ -103,6 +126,7 @@ body {
 }
 
 
+
 /*Carousel styling*/
 
 #carousel {
@@ -111,6 +135,7 @@ body {
     height: 55vh;
     margin: auto;
     background-color: #fbd070;
+    border-radius: 6px;
     /*background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/linedpaper.png");
      background-repeat: repeat;*/
 }

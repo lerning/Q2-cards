@@ -36,13 +36,12 @@ $(document).ready(() => {
 
   $('body').keyup(function(e) {
     if (e.keyCode == 32) {
-      console.log('still doing it!!!!');
       $('.click').toggleClass("flipped")
     }
   });
 
   //flip cards on click
-  $('.card').click(() => {
+  $('.card').click((event) => {
     if ($(event.target).hasClass("flipped")) {
       console.log($(event.target));
       $(event.target).removeClass("flipped")
@@ -50,10 +49,10 @@ $(document).ready(() => {
       $(event.target).addClass("flipped");
     }
   })
+
   //delete functionality on individual decks
   $('.btnDestroy').click(() => {
     let id = $(event.target).attr('data-id');
-    console.log(id);
     $.ajax({
       method: 'DELETE',
       url: '/decks',

@@ -5,7 +5,10 @@
 process.env.NODE_ENV = 'test';
 
 const assert = require('chai').assert;
-const { Suite, test } = require('mocha');
+const {
+  Suite,
+  test
+} = require('mocha');
 const knex = require('../knex');
 
 describe('migrations', () => {
@@ -30,7 +33,7 @@ describe('migrations', () => {
             defaultValue: 'nextval(\'decks_id_seq\'::regclass)'
           },
 
-          name : {
+          name: {
             type: 'character varying',
             maxLength: 255,
             nullable: false,
