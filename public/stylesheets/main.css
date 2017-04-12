@@ -122,11 +122,11 @@ body .section_overlay {
     outline: none;
     padding: 15px 10px;
     border-radius: 4px;
-    color: #e8e8e7;
+    color: #6f6f6d;
 }
 
 .f {
-  margin-top: -1.25em;
+  margin-top: -1.75em;
   margin-bottom: 8px;
 }
 
@@ -136,6 +136,11 @@ body .section_overlay {
   font-weight: 300;
   color: #e8e8e7;
   text-transform: uppercase;
+}
+
+.xmove {
+  padding-top: 3px;
+  padding-left: 50px;
 }
 
 /*CARD FLIPPING*/
@@ -174,7 +179,7 @@ body .section_overlay {
     margin-bottom: 32px;
 }
 
-.deck, .sampleDeck {
+.deck, .sampleDeck, .createC {
   background-color: #fbd070;
   height: 12em;
   margin: .75em;

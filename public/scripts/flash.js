@@ -91,18 +91,18 @@ $(document).ready(() => {
       error: () => {}
     })
   })
-// add more rows to update/create
+  // add more rows to update/create
   $('.addMore').click(() => {
-    $('.addMoreRows').append(`<div class="jumbotron col-sm-3 col-md-3 deck">
-            <textarea class="form-control createText" rows="1" name="front" data-id="1" placeholder="front"></textarea>
-            <textarea class="form-control createText" rows="1" name="back" data-id="1" placeholder="back"></textarea>
-        </div>`)
+    $('.addMoreRows').append(`<div class="jumbotron col-sm-3 col-md-3 createC">
+                            <textarea class="form-control createText f" rows="1" name="front" data-id="1" placeholder="front"></textarea>
+                            <textarea class="form-control createText" rows="1" name="back" data-id="1" placeholder="back"></textarea>
+                            <span class="glyphicon glyphicon-remove xmove" aria-hidden="true"></span>
+                        </div>`)
   })
 
-// delete rows from update/create
-  $('.addMoreRows').on('click', '.delInput', () => {
+  // delete rows from update/create
+  $('.addMoreRows').on('click', '.xmove', () => {
     $(event.target).parent().remove()
   })
-
 
 })
