@@ -6,7 +6,6 @@ const jwt = require('jsonwebtoken');
 const request = require('request')
 
 router.get('/', (req, res, next) => {
-   console.log('top of get/ on deckjs');
     jwt.verify(req.cookies.token, 'secret_key', (err, decoded) => {
         if (decoded) {
             if (req.params.id) {
@@ -31,10 +30,10 @@ router.get('/', (req, res, next) => {
 
 
 router.get('/sample', (req, res, next) => {
-   console.log('inside get/sample before if');
+  const deck = []
     if (req.query.search !== undefined) {
         let deck_id = 0
-        const deck = []
+        const decks = []
         let optionsI = {
             url: `https://api.quizlet.com/2.0/search/sets?client_id=qQGwH7rCeg&whitespace=1&q=${req.query.search}`,
             headers: {
@@ -45,42 +44,58 @@ router.get('/sample', (req, res, next) => {
         function callbackI(error, response, body) {
             if (!error && response.statusCode == 200) {
                 let info = JSON.parse(body);
-                deck_id = info.sets[0].id
-                let options = {
-                    url: `https://api.quizlet.com/2.0/sets/${deck_id}?client_id=qQGwH7rCeg&whitespace=1`,
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                };
-                request(options, callback)
-            }
-        }
-
-        function callback(error, response, body) {
-            if (!error && response.statusCode == 200) {
-                let info = JSON.parse(body);
-                let terms = info.terms
-                for (let i = 0; i < terms.length; i++) {
-                    deck.push({
-                        front: terms[i].term,
-                        back: terms[i].definition
-                    })
+                for (var i = 0; i < 3; i++) {
+                  deck_id = info.sets[i].id
+                  title = info.sets[i].title + ' ' + (i + 1)
+                  decks.push({
+                    id: deck_id,
+                    title: title
+                  })
                 }
-                res.render('decks', {
-                    sampleDeck: deck
-                })
-            } else {
-                res.end()
             }
+            res.render('decks', {
+              sampleDecks: decks
+            })
         }
         request(optionsI, callbackI)
     } else {
-      console.log('inside get/sample else');
         res.render('decks', {
             search: [1]
         })
     }
+})
 
+router.get('/sample/:id', (req, res, next) => {
+  let cards = []
+  let deck_id = req.params.id
+  let options = {
+      url: `https://api.quizlet.com/2.0/sets/${deck_id}?client_id=qQGwH7rCeg&whitespace=1`,
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  }
+  function callback(error, response, body) {
+      if (!error && response.statusCode == 200) {
+          let info = JSON.parse(body);
+          let terms = info.terms
+          for (let i = 0; i < terms.length; i++) {
+              cards.push({
+                  front: terms[i].term,
+                  back: terms[i].definition
+              })
+          }
+          console.log('cards', cards);
+          let firstCard = [cards[0]]
+          cards.shift()
+          res.render(`decks`, {
+             deck: cards,
+             cardOne: firstCard
+          })
+      } else {
+          res.end()
+      }
+  }
+  request(options, callback)
 })
 
 router.get('/:id', (req, res, next) => {
