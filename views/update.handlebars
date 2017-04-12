@@ -30,25 +30,25 @@
 <main class="section_overlay">
     <section class="container">
         <article class="row" id="deckRow">
-            <h1 class="createHeader col-sm-3 col-md-3">Create Deck</h1>
+            <h1 class="createHeader col-sm-3 col-md-5">Update Deck</h1>
             <form method="post">
                 <div class="row">
-                    <div class="col-sm-3 col-md-3 topRow">
+                    <div class="col-sm-3 col-md-5 topRow">
                         <div class="input-field">
                             <input type="text" class="form-control" id="deck_title" name="title" placeholder="{{title}}">
                         </div>
                     </div>
-                    <div class="col-sm-3 col-md-3 topRow">
-                        <div class="btn btn-default upBtn addMore">addMore</div>
-                        <button class="btn btn-default upBtn createBtn" type="submit">Create</button>
+                    <div class="col-sm-3 col-md-5 topRow">
+                        <div class="btn btn-default upBtn addMore">+ Card</div>
+                        <button class="btn btn-default upBtn createBtn" type="submit">Update</button>
                     </div>
                 </div>
-                <div class="jumbotron col-sm-3 col-md-3 createC">
-                  {{#each deck}}
-                    <textarea class="form-control createText f" rows="1" name="front" data-id="{{this.id}}">{{this.front}}</textarea>
-                    <textarea class="form-control createText" rows="1" name="back" data-id="{{this.id}}">{{this.back}}</textarea>
-                  {{/each}}
+                {{#each deck}}
+                <div class="jumbotron col-sm-3 col-md-5 updateC">
+                    <textarea class="form-control updateText f" rows="2" name="front" data-id="{{this.id}}">{{this.front}}</textarea>
+                    <textarea class="form-control updateText" rows="8" name="back" data-id="{{this.id}}">{{this.back}}</textarea>
                 </div>
+                {{/each}}
                 <div class="addMoreRows">
                 </div>
             </form>

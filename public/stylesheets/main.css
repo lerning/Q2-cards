@@ -130,7 +130,7 @@ body .section_overlay {
   margin-bottom: 8px;
 }
 
-.createHeader {
+.createHeader, .updateHeader {
   margin-top: 4px;
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
@@ -143,6 +143,24 @@ body .section_overlay {
   padding-left: 50px;
 }
 
+
+/*update*/
+.updateC {
+  background-color: #fbd070;
+  height: 20em;
+  margin: .75em;
+}
+
+.updateText {
+    width: 27em;
+    margin-left: -3em;
+    border: 2px;
+    outline: none;
+    padding-top: 15px
+    padding-right: 10px;
+    border-radius: 4px;
+    color: #6f6f6d;
+}
 /*CARD FLIPPING*/
 
 .card_front, .card_back {
