@@ -7,7 +7,7 @@ const ev = require('express-validation')
 
 
 router.get('/:id', (req, res) => {
-  let deck_id = req.params.id
+  let deck_id = +req.params.id
   console.log('deck id', deck_id);
   jwt.verify(req.cookies.token, "secret_key", (err, decoded) => {
     if (decoded) {
@@ -31,7 +31,6 @@ router.post('/:id', (req, res) => {
   let title = req.body.title
   let userID = req.cookies.userID
   let deck_id = +req.params.id
-  console.log('reeeeq', req.body);
   //knex to update deck
 
   knex('decks')
@@ -50,7 +49,6 @@ router.post('/:id', (req, res) => {
             'back': req.body.back[card]
           })
           .then((data) => {
-            console.log('cardy',data[0]);
           })
       }
     })

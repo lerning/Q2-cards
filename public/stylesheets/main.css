@@ -24,21 +24,21 @@
 }
 
 /*CREATE PAGE*/
-.createBtnRow{
+.btnRow{
   padding-top: 1em;
 }
 
-.createBtn{
+.createBtn, .upBtn{
   background-color: #E5A21D;
   color: white;
   margin: 1em 1em;
-
 }
 
-.createBtn:hover {
+.createBtn:hover, .upBtn:hover {
   background-color: #e9b246;
   color: white;
 }
+
 
 
 /*CARD FLIPPING*/
