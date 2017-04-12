@@ -2,6 +2,7 @@
     <title>{{title}}</title>
     <meta name=“viewport” content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:500,600,700,800,900,400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/stylesheets/main.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -28,47 +29,37 @@
     </nav>
     <main class="section_overlay">
         <section class="container">
-            <div class="row">
-                <form class="col-sm-12 col-md-12" method="post">
+            <article class="row" id="deckRow">
+                <h1 class="createHeader col-sm-3 col-md-3">Create Deck</h1>
+                <form method="post">
                     <div class="row">
-                        <div class="input-field col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
-                            <label for="Title">Title</label>
-                            <input type="text" class="form-control" id="deck_title" name="title" placeholder="Title">
+                        <div class="col-sm-3 col-md-3 topRow">
+                            <div class="input-field">
+                                <input type="text" class="form-control" id="deck_title" name="title" placeholder="Title">
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-md-3 topRow">
+                            <div class="btn btn-default upBtn addMore">addMore</div>
+                            <button class="btn btn-default upBtn createBtn" type="submit">Create</button>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input-field col-md-6 col-sm-6">
-                            <label for="Front">Front</label>
-                            <textarea class="form-control" rows="1" name="front" data-id="1" placeholder="front"></textarea>
-                        </div>
-                        <div class="input-field col-md-6 col-sm-6">
-                            <label for="Back">Back</label>
-                            <textarea class="form-control" rows="1" name="back" data-id="1" placeholder="back"></textarea>
-                        </div>
+                    <div class="jumbotron col-sm-3 col-md-3 deck">
+                        <textarea class="form-control createText" rows="1" name="front" data-id="1" placeholder="front"></textarea>
+                        <textarea class="form-control createText" rows="1" name="back" data-id="1" placeholder="back"></textarea>
                     </div>
-                    <div class="row">
-                        <div class="input-field col-md-6 col-sm-6">
-                            <label for="Front">Front</label>
-                            <textarea class="form-control" rows="1" name="front" data-id="2" placeholder="front"></textarea>
-                        </div>
-                        <div class="input-field col-md-6 col-sm-6">
-                            <label for="Back">Back</label>
-                            <textarea class="form-control" rows="1" name="back" data-id="2" placeholder="back"></textarea>
-                        </div>
+                    <div class="jumbotron col-sm-3 col-md-3 deck">
+                        <textarea class="form-control createText" rows="1" name="front" data-id="1" placeholder="front"></textarea>
+                        <textarea class="form-control createText" rows="1" name="back" data-id="1" placeholder="back"></textarea>
+                    </div>
+                    <div class="jumbotron col-sm-3 col-md-3 deck">
+                        <textarea class="form-control createText" rows="1" name="front" data-id="1" placeholder="front"></textarea>
+                        <textarea class="form-control createText" rows="1" name="back" data-id="1" placeholder="back"></textarea>
                     </div>
                     <div class="addMoreRows">
 
                     </div>
-                    <div class="row btnRow container-fluid">
-                        <div class="col-md-5">
-                        </div>
-                        <button class="btn btn-default col-md-2 createBtn" type="submit">Create</button>
-                        <div class="col-md-5">
-                        </div>
-                    </div>
                 </form>
-                <button class="btn btn-default col-md-2 upBtn addMore">addMore</button>
-            </div>
+            </article>
         </section>
     </main>
 </body>

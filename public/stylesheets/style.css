@@ -72,13 +72,13 @@ body .section_overlay {
 input {
     width: 100%;
     margin-bottom: 10px;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(9, 9, 9, 0.6);
     border: 2px;
     outline: none;
-    padding: 10px;
+    padding: 15px 10px;
     font-size: 1.0em;
     border-radius: 4px;
-    color: white;
+    color: #e8e8e7;
 }
 
 .error {
