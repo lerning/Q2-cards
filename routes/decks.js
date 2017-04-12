@@ -6,7 +6,6 @@ const jwt = require('jsonwebtoken');
 const request = require('request')
 
 router.get('/', (req, res, next) => {
-    console.log('req. cookies token', req.cookies.token);
     jwt.verify(req.cookies.token, 'secret_key', (err, decoded) => {
         if (decoded) {
             if (req.params.id) {
@@ -19,8 +18,6 @@ router.get('/', (req, res, next) => {
                     .select('decks.id as deck_id', 'decks.name as deck_title')
                     .where('users.id', userID)
                     .then((decks) => {
-                      console.log('did we get inside here?');
-                      console.log('decks', decks);
                         res.render('decks', {
                             decks: decks
                         })
@@ -131,11 +128,13 @@ router.put('/', (req, res, next) => {
 
 router.delete('/', (req, res) => {
     let id = req.body.id;
+    console.log('id reqbody', req.body.id);
     knex('decks')
         .where('id', id)
         .first()
         .del()
         .then(() => {
+           console.log('sending staus from decksjs delete');
             res.status(200).send(true);
         })
 })

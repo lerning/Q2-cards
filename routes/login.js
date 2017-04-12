@@ -22,7 +22,6 @@ router.post('/', (req, res) => {
   if (req.body.accessToken) {
   let fbEmail = req.body.email
   let fbToken = req.body.accessToken;
-  console.log('req.body is', req.body);
   knex("users")
     .where("username", fbEmail)
     .then((exists) => {
@@ -44,7 +43,6 @@ router.post('/', (req, res) => {
             // This is if the user doesn't exist
           })
       } else {
-        console.log('no exist')
         knex("users")
           .returning(['id', 'username', 'hashed_password',
             'email'
@@ -55,7 +53,6 @@ router.post('/', (req, res) => {
             'email': fbEmail
           })
           .then((user) => {
-            console.log('user0 is', user[0].username);
             let token = jwt.sign({
               username: user[0].username,
               password: user[0].hashed_password
@@ -66,7 +63,6 @@ router.post('/', (req, res) => {
             res.cookie('userID', user[0].id, {
               httpOnly: true
             })
-            console.log('token POPOPOPOPOPOPOPO', token);
             res.redirect('/decks');
           })
       }

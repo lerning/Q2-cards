@@ -51,8 +51,11 @@ $(document).ready(() => {
   })
 
   //delete functionality on individual decks
-  $('.btnDestroy').click(() => {
+  $('.btnDestroy').click((e) => {
+    e.stopPropagation();
     let id = $(event.target).attr('data-id');
+    console.log('event target', event.target);
+    console.log('id', id);
     $.ajax({
       method: 'DELETE',
       url: '/decks',
@@ -61,6 +64,7 @@ $(document).ready(() => {
       },
       success: (data) => {
         if (data) {
+           console.log('inside ajax of btn destoy', data);
           location.reload();
         }
       },
@@ -70,6 +74,7 @@ $(document).ready(() => {
 
   //update individual deck info
   $('.btnUpdate').click((event) => {
+     event.stopPropagation();
     let deck_id = $(event.target).attr('data-id');
     $.ajax({
       method: 'PUT',
@@ -79,6 +84,7 @@ $(document).ready(() => {
       },
       success: (data) => {
         if (data) {
+           console.log('inside ajax of btn update');
           location.href = `/update/${deck_id}`
         }
       },

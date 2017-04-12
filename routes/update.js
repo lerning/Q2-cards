@@ -7,7 +7,7 @@ const ev = require('express-validation')
 
 
 router.get('/:id', (req, res) => {
-  let deck_id = Number.parseInt(req.params.id)
+  let deck_id = req.params.id
   console.log('deck id', deck_id);
   jwt.verify(req.cookies.token, "secret_key", (err, decoded) => {
     if (decoded) {
@@ -16,7 +16,8 @@ router.get('/:id', (req, res) => {
         .join('decks', 'decks.id', 'cards.deck_id')
         .where('decks.id', deck_id)
         .then((data) => {
-          res.render(`update`, {
+           console.log('update /id data', data);
+          res.render('update', {
             title: data[0].title,
             deck: data
           })
