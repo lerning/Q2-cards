@@ -67,9 +67,8 @@ router.post('/', (req, res) => {
           })
       }
     })
+    //this is for regular login
   } else {
-
-
   let username = req.body.username.toLowerCase();
 
   let password = req.body.password
