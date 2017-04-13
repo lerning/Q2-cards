@@ -25,7 +25,7 @@ body .section_overlay {
 /*NAV*/
 
 .logo {
-    height: inherit;
+    height: 4em;;
 }
 
 .navbar {
@@ -35,14 +35,16 @@ body .section_overlay {
     border-bottom: 1px solid #fbd070;
 }
 
-.navBtn {
+a.navBtn {
     margin: 1.5em 0;
+    font-size: 2em;
 }
 
 span.glyphicon-search {
   align-self: center;
   color: #fbd070;
   margin: 0.5em;
+  font-size: 2em;
 
 }
 
@@ -50,6 +52,8 @@ span.glyphicon-search {
   background: rgba(9, 9, 9, 0.6);
   color: #f39c12;
   border-color: #fbd070;
+  height: 2em;
+  font-size: 1.8em;
 }
 
 .searchForm{
@@ -136,7 +140,7 @@ span.glyphicon-search {
   margin-left: 1.25em;
 }
 
-#deck_title, .createText {
+#deck_title {
   margin-left: 1em;
   font-size: 1.0em;
   border-radius: 4px;
@@ -147,16 +151,6 @@ span.glyphicon-search {
   margin-top: 10px;
   padding: 24px 12px;
   background: rgba(9, 9, 9, 0.6);
-}
-
-.createText {
-    width: 15em;
-    margin-left: -3em;
-    border: 2px;
-    outline: none;
-    padding: 15px 10px;
-    border-radius: 4px;
-    color: #6f6f6d;
 }
 
 .f {
@@ -170,6 +164,7 @@ span.glyphicon-search {
   font-weight: 300;
   color: #e8e8e7;
   text-transform: uppercase;
+
 }
 
 .xmove {
@@ -179,21 +174,24 @@ span.glyphicon-search {
 
 
 /*update*/
-.updateC {
+.updateC, .createC {
   background-color: #fbd070;
-  height: 20em;
+  height: 35em;
+  width: 85em;
   margin: .75em;
+  margin-left: -31em;
 }
 
-.updateText {
-    width: 27em;
-    margin-left: -3em;
+.updateText, .createText {
+    width: 42em;
     border: 2px;
     outline: none;
     padding-top: 15px
     padding-right: 10px;
     border-radius: 4px;
     color: #6f6f6d;
+    font-size: 1.8em;
+    margin-top: .35em;
 }
 /*CARD FLIPPING*/
 
@@ -227,40 +225,45 @@ span.glyphicon-search {
 
 /*Card/deck styling*/
 #deckRow {
-  margin-top: 5em;
-  margin-left: 11em;
+  margin-top: 12em;
+  margin-left: 28em;
 
 }
 
 .title {
-    font-size: 1.5em;
+    font-size: 2em;
     margin-bottom: 32px;
 }
 
 .yourTitle {
-  font-size: 3em;
+  font-size: 5em;
   color: #e8e8e7;
   text-transform: uppercase;
   font-weight: 300;
-  margin-left: 7.75em;
+  margin-left: 4.95em;
+  margin-bottom: 1em;
 }
 
 .yourDeckTitle {
-  font-size: 3em;
+  font-size: 5em;
   color: #e8e8e7;
   text-transform: uppercase;
   font-weight: 300;
-  margin-left: 8.05em;
+  margin-left: 5.05em;
+  margin-bottom: 1em;
+  margin-top: -1em;
 }
 
-.deck, .sampleDeck, .createC {
+.deck, .sampleDeck{
   background-color: #fbd070;
   height: 12em;
   margin: 1em;
 }
 
+
+
 .deck {
-  height: 12em;
+  height: 18em;
 }
 
 .sampleDeck {
@@ -284,8 +287,8 @@ span.glyphicon-search {
     width: 55vw;
     height: 63vh;
     margin: auto;
-    margin-top: 1em;
-    margin-left: 6.75em;
+    margin-top: -1em;
+    margin-left: -14.75em;
     background-color: #fbd070;
     border-radius: 6px;
     /*background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/linedpaper.png");
