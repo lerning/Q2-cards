@@ -75,7 +75,7 @@ exports.seed = function(knex, Promise) {
         {
           id: 11,
           front: 'DOM',
-          back: 'A standard that defines that logical structure of documents and the way a document is accessed and manipulated. (An object-oriented representation of the content in the page.)',
+          back: 'A standard that defines that logical structure of documents and the way a document is accessed and manipulated.',
           deck_id: 5,
           got_it: false
         },

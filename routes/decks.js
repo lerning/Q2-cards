@@ -18,7 +18,8 @@ router.get('/', (req, res, next) => {
           .select('decks.id as deck_id', 'decks.name as deck_title')
           .then((decks) => {
             res.render('decks', {
-              decks: decks
+              decks: decks,
+              pageTitle: 'Welcom, Admin'
             })
           })
         } else {
@@ -28,7 +29,8 @@ router.get('/', (req, res, next) => {
             .where('users.id', userID)
             .then((decks) => {
               res.render('decks', {
-                decks: decks
+                decks: decks,
+                pageTitle: 'Your Decks'
               })
             })
         }
@@ -114,15 +116,18 @@ router.get('/:id', (req, res, next) => {
     if (decoded) {
       let deck_id = req.params.id
       knex('cards')
-        .select('cards.front as front', 'cards.back as back', 'cards.got_it as got_it ')
+        .select('cards.front as front', 'cards.back as back', 'cards.got_it as got_it', 'decks.name as title')
         .join('decks', 'decks.id', 'cards.deck_id')
         .where('decks.id', deck_id)
         .then((data) => {
+          let title = data[2].title
           let firstCard = [data[0]]
           data.shift()
+          console.log(title);
           res.render(`decks`, {
             deck: data,
-            cardOne: firstCard
+            cardOne: firstCard,
+            deckTitle: title
           })
         })
     } else {
@@ -138,13 +143,11 @@ router.put('/', (req, res, next) => {
 
 router.delete('/', (req, res) => {
   let id = req.body.id;
-  console.log('id reqbody', req.body.id);
   knex('decks')
     .where('id', id)
     .first()
     .del()
     .then(() => {
-      console.log('sending staus from decksjs delete');
       res.status(200).send(true);
     })
 })

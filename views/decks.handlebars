@@ -50,7 +50,8 @@
 
             <section class="row" id="deckRow">
                 <!-- creating /decks and update/delete -->
-
+                <h1 class="yourTitle">{{pageTitle}}</h1>
+                <h1 class="yourDeckTitle">{{deckTitle}}</h1>
                 {{#each decks}}
                     <div class="jumbotron col-sm-3 col-md-3 deck" data-id="{{this.deck_id}}">
                         <button class="btn btn-default btnDestroy pull-right" type="submit" role="button" data-id="{{this.deck_id}}">
@@ -80,12 +81,10 @@
                 {{/each}}
                 </ol>
                 <!-- Wrapper for slides -->
-                <div class="click">
-
                 <div class="carousel-inner">
                     <!-- for first slide (active) -->
                     {{#each cardOne}}
-                        <div class="item active card">
+                        <div class="item active card click">
                             <div class=" col-md-6 col-md-offset-3">
                                 <div class="card_front center-block">
                                     <h3 class="card_front text-center">{{this.front}}</h3>
