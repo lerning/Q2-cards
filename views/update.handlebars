@@ -10,23 +10,32 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse navbar-static-top row container-fluid">
-        <div class="container-fluid">
-            <div class="col-md-5">
-            </div>
-            <a class="navbar-brand col-md-2 container-fluid " href="/">
-                <img alt="Flash" src="/img/flashLogo500tranny.png" class="logo center-block img-responsive">
-            </a>
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-3 container-fluid">
-                <ul class="nav nav-pills container-">
-                    <li role="presentation"><a href="/" class="btnLogOut navBtn" role="button">Logout</a></li>
-                    <li role="presentation"><a id="createLink" class="btnCreate navBtn" href="/create" role="button">Create</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+  <nav class="navbar navbar-inverse navbar-fixed-top container-fluid">
+      <div class="container-fluid row">
+          <div class="col-md-4">
+            <ul class="nav nav-pills container">
+              <li role="presentation"><a id="createLink" class="btnCreate navBtn navbar-btn" href="/create" role="button">Create Deck</a></li>
+              <li role="presentation"><a id="myDecks" class="btnDecks navBtn navbar-btn" href="/decks" role="button">My Decks</a></li>
+            </ul>
+          </div>
+          <div class="col-md-1">
+          </div>
+          <a class="navbar-brand col-md-2 container-fluid" href="/">
+              <img alt="Flash" src="/img/flashLogo500tranny.png" class="logo center-block img-responsive">
+          </a>
+          <div class="col-md-3 container-fluid">
+            <form class="form-inline justify-center searchForm">
+              <input type="text" class="form-control navbar-btn quickSearch" placeholder="Quick Search">
+              <span class="glyphicon glyphicon-search navbar-btn" type="submit" role="button"></span>
+            </form>
+          </div>
+          <div class="col-md-2">
+              <ul class="nav nav-pills">
+                  <li role="presentation"><a href="/" class="btnLogOut navBtn navbar-btn" role="button">Logout</a></li>
+              </ul>
+          </div>
+      </div>
+  </nav>
 <main class="section_overlay">
     <section class="container">
         <article class="row" id="deckRow">

@@ -46,6 +46,12 @@ span.glyphicon-search {
 
 }
 
+.quickSearch {
+  background: rgba(9, 9, 9, 0.6);
+  color: #f39c12;
+  border-color: #fbd070;
+}
+
 .searchForm{
   margin: 1em;
 }
