@@ -25,10 +25,10 @@
                 <img alt="Flash" src="/img/flashLogo500tranny.png" class="logo center-block img-responsive">
             </a>
             <div class="col-md-3 container-fluid">
-              <form class="form-inline justify-center searchForm">
-                <input type="text" class="form-control navbar-btn quickSearch" placeholder="Quick Search">
-                <span class="glyphicon glyphicon-search navbar-btn" type="submit" role="button"></span>
-              </form>
+              <div class="form-inline justify-center searchForm">
+                <input type="text" class="form-control navbar-btn quickSearch" placeholder="Quick Search" name="search">
+                <span class="glyphicon glyphicon-search navbar-btn searchThing" role="button"></span>
+             </div>
             </div>
             <div class="col-md-2">
                 <ul class="nav nav-pills">
@@ -76,7 +76,7 @@
                             <ol class="carousel-indicators">
                                 <li data-target="#carousel" data-slide-to="0" class="active"></li>
                 {{/each}}
-                
+
                 {{#each deck}}
                     <li data-target="#carousel" data-slide-to="1"></li>
                 {{/each}}

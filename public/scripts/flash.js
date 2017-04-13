@@ -34,6 +34,34 @@ $(document).ready(() => {
     })
   })
 
+
+ // search functionality
+ $('.searchThing').click(() => {
+    console.log('clicking on search form');
+    let search = $('.quickSearch').val()
+    console.log('search', search);
+    $.ajax({
+      method: 'GET',
+      url: '/decks/searchy/',
+      data: {
+        search: search
+      },
+      success: (data) => {
+        if (data) {
+           console.log('inside ajax of btn destoy');
+          location.href = `/decks/sample/${search}`
+          // res.render(`decks`, {
+          //   deck: cards,
+          //   cardOne: firstCard
+          // })
+        }
+      },
+      error: (data2) => {
+         console.log(data2)
+      }
+    })
+})
+
   $('body').keyup(function(e) {
     if (e.keyCode == 32) {
       $('.click').toggleClass("flipped")
