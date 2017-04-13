@@ -192,7 +192,8 @@ p {
 .home-btn,
 .home-btn:focus,
 .home-btn:active,
-.home-btn:visited {
+.home-btn:visited,
+.quickSearch {
     background: transparent;
     border-color: #f39c12;
     color: #f39c12;
@@ -243,4 +244,19 @@ tuor:visited {
     font-family: 'Helvetica Neue';
     font-weight: 400;
 
+}
+
+
+span.glyphicon-search {
+  align-self: center;
+  color: #f39c12;
+  margin: 0.5em;
+   font-size: 1.5328em;
+}
+
+.quickSearch {
+  background: rgba(9, 9, 9, 0.3);
+  padding-top: 1.4em;
+  padding-bottom: 1.4em;
+ margin-left: 1.7em;
 }
