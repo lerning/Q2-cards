@@ -98,6 +98,23 @@ span.glyphicon-search {
     transition: all 1s;
 }
 
+.faceBtn {
+   background: transparent;
+   border-color: #1222f4;
+   color: #f39c12;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-left: 30px;
+   padding-right: 30px;
+   font-size: 19px;
+   text-transform: uppercase;
+   border-radius: 3px;
+   -webkit-transition: all 1s;
+   -moz-transition: all 1s;
+   -o-transition: all 1s;
+   transition: all 1s;
+}
+
 .upBtn {
       border-color: #fbd070;
       color: #fbd070;

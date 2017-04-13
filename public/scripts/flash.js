@@ -72,6 +72,11 @@ $(document).ready(() => {
     })
   })
 
+    $('.faceBtn').click(() => {
+      console.log('yay!!');
+
+   })
+
   //update individual deck info
   $('.btnUpdate').click((event) => {
      event.stopPropagation();
