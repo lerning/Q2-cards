@@ -24,7 +24,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: 5,
-          name: 'AJAX',
+          name: 'JavaScript',
           user_id: 3
         },
         {
@@ -44,7 +44,7 @@ exports.seed = function(knex, Promise) {
         },
         {
           id: 9,
-          name: 'JavaScript',
+          name: 'AJAX',
           user_id: 3
         },
         {

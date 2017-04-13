@@ -51,7 +51,7 @@
             <section class="row" id="deckRow">
                 <!-- creating /decks and update/delete -->
                 <h1 class="yourTitle">{{pageTitle}}</h1>
-                <h1 class="yourDeckTitle text-center">{{deckTitle}}</h1>
+                <h1 class="yourDeckTitle">{{deckTitle}}</h1>
                 {{#each decks}}
                     <div class="jumbotron col-sm-3 col-md-3 deck" data-id="{{this.deck_id}}">
                         <button class="btn btn-default btnDestroy pull-right" type="submit" role="button" data-id="{{this.deck_id}}">

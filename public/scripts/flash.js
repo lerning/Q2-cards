@@ -105,6 +105,13 @@ $(document).ready(() => {
                         </div>`)
   })
 
+  $('.addUpdate').click(() => {
+    $('.addMoreRows').append(`<div class="jumbotron col-sm-3 col-md-5 updateC">
+              <textarea class="form-control updateText f" rows="2" name="front" data-id="{{this.id}}">Front</textarea>
+              <textarea class="form-control updateText" rows="8" name="back" data-id="{{this.id}}">Back</textarea><span class="glyphicon glyphicon-remove xmove" aria-hidden="true"></span>
+          </div>`)
+  })
+
   // delete rows from update/create
   $('.addMoreRows').on('click', '.xmove', () => {
     $(event.target).parent().remove()
