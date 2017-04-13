@@ -7,21 +7,20 @@
     "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run;",
     "start": "node ./bin/www",
     "knex": "knex",
-    "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run;",
     "test": "mocha",
     "nodemon": "node ./bin/www"
   },
   "repository": {
-  "type": "git",
-  "url": "git+https://github.com/lerning/Q2-cards.git"
+    "type": "git",
+    "url": "git+https://github.com/lerning/Q2-cards.git"
   },
   "dependencies": {
-    "@google-cloud/translate": "^0.8.0",
     "bcrypt": "^1.0.2",
     "body-parser": "~1.16.0",
     "chai": "^3.5.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.0",
+    "dotenv": "^4.0.0",
     "express": "~4.14.1",
     "express-handlebars": "^3.0.0",
     "express-validation": "^1.0.2",
@@ -34,15 +33,16 @@
     "request": "^2.81.0",
     "serve-favicon": "~2.3.2"
   },
-
   "devDependencies": {
     "chai": "^3.5.0",
+    "dotenv": "^4.0.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.1.3",
+    "eslint-plugin-import": "^2.2.0",
     "mocha": "^3.2.0",
-    "supertest": "^3.0.0",
-      "dotenv": "^4.0.0"
-},
+    "supertest": "^3.0.0"
+  },
   "engines": {
     "node": "v7.7.2"
   }
-
 }
