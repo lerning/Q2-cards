@@ -55,12 +55,13 @@ body .section_overlay {
 }
 
 .btnUpdate {
-  margin-right: -27%;
+  margin-left: -3em;
+  margin-top: -2em;
 }
 
 .btnDestroy {
-  margin-top: -20%;
-  margin-right: -27%;
+  margin-top: -2em;
+  margin-right: -3em;
 }
 
 
@@ -170,14 +171,19 @@ body .section_overlay {
     transition: transform 0.6s;
 }
 
+
 .card_back {
     -webkit-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
+    font-size: 2.4em;
+    margin-top: .7em;
+    font-weight: 600;
+
 }
 
 .click.flipped .card_front {
-    -webkit-transform: rotateY(-180deg);
-    transform: rotateY(-180deg);
+    -webkit-transform: rotatex(-180deg);
+    transform: rotatex(-180deg);
 }
 
 .click.flipped .card_back {
@@ -189,7 +195,8 @@ body .section_overlay {
 /*Card/deck styling*/
 #deckRow {
   margin-top: 4em;
-  margin-left: 11em;
+  margin-left: 19em;
+
 }
 
 .title {
@@ -200,7 +207,7 @@ body .section_overlay {
 .deck, .sampleDeck, .createC {
   background-color: #fbd070;
   height: 12em;
-  margin: .75em;
+  margin: 1em;
 }
 
 .deck {
@@ -212,7 +219,8 @@ body .section_overlay {
 }
 
 .card_front {
-    font-size: 1.75em;
+    font-size: 2.4em;
+    margin-top: .7em;
     font-weight: 600;
 }
 
@@ -225,8 +233,9 @@ body .section_overlay {
 #carousel {
     clear: both;
     width: 55vw;
-    height: 55vh;
+    height: 63vh;
     margin: auto;
+    margin-left: -7em;
     background-color: #fbd070;
     border-radius: 6px;
     /*background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/linedpaper.png");

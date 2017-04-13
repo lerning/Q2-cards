@@ -37,19 +37,20 @@
             </form>
         {{/each}}
 
-        <main class="container">
+        <main class="container-fluid">
 
             <section class="row" id="deckRow">
                 <!-- creating /decks and update/delete -->
+
                 {{#each decks}}
                     <div class="jumbotron col-sm-3 col-md-3 deck" data-id="{{this.deck_id}}">
                         <button class="btn btn-default btnDestroy pull-right" type="submit" role="button" data-id="{{this.deck_id}}">
-                           <span class="glyphicon glyphicon-remove" aria-hidden="true" data-id="{{this.deck_id}}"></span>
+                           <span class="glyphicon glyphicon-remove" aria-hidden="true" data-id="{{this.deck_id}}"f></span>
                         </button>
-                        <h3 data-id="{{this.deck_id}}" class="title text-center align-baseline">{{this.deck_title}}</h3>
-                        <button class="btn btn-default btnUpdate pull-right" type="submit" role="button" data-id="{{this.deck_id}}">
+                        <button class="btn btn-default btnUpdate pull-left" type="submit" role="button" data-id="{{this.deck_id}}">
                            <span class="glyphicon glyphicon-pencil" aria-hidden="true" data-id="{{this.deck_id}}"></span>
                         </button>
+                        <h3 data-id="{{this.deck_id}}" class="title text-center align-baseline">{{this.deck_title}}</h3>
                     </div>
                 {{/each}}
                 {{#each sampleDecks}}
@@ -70,11 +71,13 @@
                 {{/each}}
                 </ol>
                 <!-- Wrapper for slides -->
+                <div class="click">
+
                 <div class="carousel-inner">
                     <!-- for first slide (active) -->
                     {{#each cardOne}}
                         <div class="item active card">
-                            <div class="click col-md-6 col-md-offset-3">
+                            <div class=" col-md-6 col-md-offset-3">
                                 <div class="card_front center-block">
                                     <h3 class="card_front text-center">{{this.front}}</h3>
                                 </div>
@@ -111,6 +114,7 @@
                 </div>
                 </div>
                 <!-- creates cards for sample deck -->
+             </div>
                 {{#each sampleDeck}}
                     <div class="card click jumbotron col-md-6 col-md-offset-3">
                         <div class="card_front">
