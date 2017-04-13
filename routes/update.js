@@ -40,6 +40,7 @@ router.post('/:id', (req, res) => {
     })
     .then(() => {
       for (let card in req.body.front) {
+        console.log(req.body);
         knex('cards')
           .returning(['id', 'front', 'back'])
           .where('id', +req.body.id[card])

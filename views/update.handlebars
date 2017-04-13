@@ -54,6 +54,7 @@
                 </div>
                 {{#each deck}}
                 <div class="jumbotron col-sm-3 col-md-5 updateC">
+                    <input type="text" name="id" value="{{this.id}}" class="hidden">
                     <textarea class="form-control updateText f" rows="2" name="front" data-id="{{this.id}}">{{this.front}}</textarea>
                     <textarea class="form-control updateText" rows="8" name="back" data-id="{{this.id}}">{{this.back}}</textarea>
                 </div>

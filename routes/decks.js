@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
           .then((decks) => {
             res.render('decks', {
               decks: decks,
-              pageTitle: 'Welcom, Admin'
+              pageTitle: 'Welcome, Admin'
             })
           })
         } else {
