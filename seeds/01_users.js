@@ -4,9 +4,9 @@ exports.seed = function(knex, Promise) {
       return knex('users').insert([
         {
           id: 1,
-          username: 'rhys',
+          username: 'admin',
           hashed_password:'$2a$10$1TqtrM2gmNM.TGUaZR50Ze.kKLg.OGGUBLhjj3JGckki5f50gQjoe',
-          email: 'rhys@gmail.com'
+          email: 'admin@admin.com'
         }, //password = password
         {
           id: 2,
