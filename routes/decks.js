@@ -120,7 +120,7 @@ router.get('/:id', (req, res, next) => {
         .join('decks', 'decks.id', 'cards.deck_id')
         .where('decks.id', deck_id)
         .then((data) => {
-          let title = data[2].title
+          let title = data[0].title
           let firstCard = [data[0]]
           data.shift()
           console.log(title);

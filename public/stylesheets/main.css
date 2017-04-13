@@ -144,7 +144,7 @@ span.glyphicon-search {
 }
 
 .createText {
-    width: 12em;
+    width: 15em;
     margin-left: -3em;
     border: 2px;
     outline: none;
@@ -209,8 +209,8 @@ span.glyphicon-search {
 }
 
 .click.flipped .card_front {
-    -webkit-transform: rotatex(-180deg);
-    transform: rotatex(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
 }
 
 .click.flipped .card_back {
@@ -244,7 +244,7 @@ span.glyphicon-search {
   color: #e8e8e7;
   text-transform: uppercase;
   font-weight: 300;
-  margin-left: 8.5em;
+  margin-left: 8.05em;
 }
 
 .deck, .sampleDeck, .createC {
