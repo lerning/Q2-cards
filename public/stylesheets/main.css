@@ -36,15 +36,25 @@ body .section_overlay {
 }
 
 .navBtn {
-    margin: 1em 1em;
+    margin: 1.5em 0;
 }
 
+span.glyphicon-search {
+  align-self: center;
+  color: #fbd070;
+  margin: 0.5em;
+
+}
+
+.searchForm{
+  margin: 1em;
+}
 
 .btnDestroy, .btnUpdate, .navBtn {
   background: transparent;
   border-color: #f39c12;
   color: #f39c12;
-  padding: .5em 1em;
+  padding: .5em;
   font-size: 1em;
   text-transform: uppercase;
   border-radius: 3px;
