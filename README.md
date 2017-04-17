@@ -1,9 +1,6 @@
 # Q2-cards
-Quarter 2 Project - Flash Cards
+Flash!
+
+Flash was designed to create a digital studying space for students in a digital age. This app allows individuals to create an account where they can make personalized flash card decks, update these decks, and search for premade decks of flash cards. Our site has three levels
 
 
-<!-- quizlet client Id
-qQGwH7rCeg
-
-quizlet secret
-VccBTCCatV4yqW5C3kqyCj -->
